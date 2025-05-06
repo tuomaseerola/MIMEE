@@ -1,0 +1,291 @@
+---
+title: "Expert Evaluations: Round 1"
+author: "T. Eerola and C. Kirts"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+This analysis details the Round 1 of the expert ratings. The data consist of ratings of 329 items across 24 constructs rated by 14 experts. 
+
+```{r}
+#| echo: true
+#| warning: false
+#| id: setup
+rm(list=ls())  # clear memory
+library(tidyverse) 
+library(stringr)
+library(psychometric)
+library(ggplot2)
+library(CVI)
+#packageVersion("CVI") # Should be 0.1.4.0 at least
+
+source('scr/read_episode_data.R') # requires ToDo! 
+source('scr/preprocess_qualtrics.R') # Not Finished, Complete
+source('scr/analyse_episode_data.R') # Not tested
+source('scr/add_constructs.R') #Needs work
+
+# write the data to file (as an option)
+file_write <- FALSE
+```
+
+## Read and preprocess the data
+
+```{r}
+#| echo: true
+#| format: asis
+#| id: read-data
+FM  <- read_episode_data("data/FM_October312024.csv")
+CB  <- read_episode_data("data/CB_October312024.csv")
+EDR <- read_episode_data("data/EDR_October312024.csv")
+AIA <- read_episode_data("data/AIA_October312024.csv")
+PEP <- read_episode_data("data/PEP_October312024.csv")
+LMA <- read_episode_data("data/LMA_October312024.csv")
+MM  <- read_episode_data("data/MM_October312024.csv")
+QRE <- read_episode_data("data/QRE_October312024.csv")
+
+FM <- preprocess_qualtrics(FM) 
+CB <- preprocess_qualtrics(CB)
+EDR <- preprocess_qualtrics(EDR)
+AIA <- preprocess_qualtrics(AIA)
+PEP <- preprocess_qualtrics(PEP)
+LMA <- preprocess_qualtrics(LMA)
+MM <- preprocess_qualtrics(MM)
+QRE <- preprocess_qualtrics(QRE)
+
+#source('scr/coder_initials.R') # Anonymise the experts in the end
+ 
+```
+
+### Define constructs and merge into a data frame
+
+```{r}
+#| echo: true
+#| id: definitions
+FM_constructs <- add_constructs(FM$rating,'FM')
+CB_constructs <- add_constructs(CB$rating,'CB')
+EDR_constructs <- add_constructs(EDR$rating,'EDR')
+AIA_constructs <- add_constructs(AIA$rating,'AIA')
+PEP_constructs <- add_constructs(PEP$rating,'PEP')
+LMA_constructs <- add_constructs(LMA$rating,'LMA')
+MM_constructs <- add_constructs(MM$rating,'MM')
+QRE_constructs <- add_constructs(QRE$rating,'QRE')
+
+# combine all constructs to a single data frame
+DF <- rbind(FM_constructs,
+            CB_constructs,
+            EDR_constructs,
+            AIA_constructs,
+            PEP_constructs,
+            LMA_constructs,
+            MM_constructs,
+            QRE_constructs)
+
+DF$IDCode[DF$IDCode==""]<-"Unknown" # replace empty IDCode with "Unknown
+```
+
+### Summarise the observations
+
+Show the number of ratings across constructs and experts. As we can observe, we have some minor gaps in the data as not all the experts have completed the ratings for all the constructs.
+
+```{r}
+#| format: asis
+#| echo: true
+#| id: summarise
+#knitr::kable(table(DF$construct,DF$IDCode))
+DF <- dplyr::filter(DF,IDCode!="Unknown") # remove IDCode = Unknown
+DF <- dplyr::filter(DF,IDCode!="KDU") # remove IDCode = KDU
+# remove double coded expert at coder_initials,R
+# length(unique(DF$IDCode)) # number of experts
+
+DF$IDCode <- factor(DF$IDCode,labels = paste0('Ex',sprintf('%0.2d',1:length(unique(DF$IDCode)))))
+knitr::kable(table(DF$construct,DF$IDCode))
+
+# rename RC to CC in Coping
+library(stringr)
+DF$name[DF$construct=='Coping']<-str_replace(DF$name[DF$construct=='Coping'],'RC','CC')
+#knitr::kable(table(DF$name,DF$construct))
+```
+
+## Calculate Content Validity
+
+Here we use the [CVI package](https://github.com/tuomaseerola/CVI). In the analysis of the items in Round 1, we rely on CVI (adjusted) and the same for the figures.
+
+```{r}
+#| id: Calculate-CVI
+# Calculate CVI for each construct 
+Constructs <- unique(DF$construct)
+Items<-list()
+Items_trimmed <- list()
+Scales_full <- list()
+Scales_trimmed <- list()
+Item_N <- NULL
+Item_N_trimmed <- NULL
+for (i in 1:length(Constructs)){
+  Items[[i]] <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Item_N[i] <- nrow(Items[[i]])
+  Items_trimmed[[i]] <- Items[[i]][Items[[i]]$CVIFit=='Appropriate',]
+  Item_N_trimmed[i] <- nrow(Items_trimmed[[i]])
+  Scales_full[[i]] <- CVI_scale(Items[[i]])  
+  Scales_trimmed[[i]] <- CVI_scale(Items_trimmed[[i]])  
+}
+Construct_table <- data.frame(Constructs = Constructs, 
+                             Item_n = Item_N,
+                             SCVI_Ave = unlist(Scales_full),
+                             Item_n_T = Item_N_trimmed,
+                             SCVI_AveT = unlist(Scales_trimmed)
+)
+knitr::kable(Construct_table,digits=2)
+```
+
+## Visualise item relevance across constructs and sub-constructs
+
+```{r}
+#| echo: false
+#| id: visualise
+fig <- list()
+for (i in 1:length(Constructs)){
+  Items[[i]]<-CVI_item(DF[DF$construct==Constructs[i],2:4])
+  fig[[i]] <- CVI_visualise(Items[[i]],showlegend = TRUE,colorvar = 'CVIFit') # default CVI.I.adj and Kappa
+  fig[[i]] <- fig[[i]] + ggtitle(Constructs[i])
+}
+# define categories
+Categories <- NULL
+Categories$EDR <- c('Enjoyment','Distraction','Relaxation')
+Categories$CB <- c('Connection','Belonging')
+Categories$FM <- c('Energy','Focus')
+Categories$PEP <- c('Coping', 'Feeling')
+Categories$AIA <- c('Moved', 'Curiosity','Aesthetics')
+Categories$LMA <- c('Diffuse','Bodily','Emotional','Associative','Structural','Reduced')
+Categories$MM <- c('Structure', 'Self', 'Source')
+Categories$QRE <- c('Qualia','Preference','Familiar')
+```
+
+### Enjoyment-Distraction-Relaxation
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 7.5
+#| id: EDR 
+index <- Constructs %in% Categories$EDR
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],ncol=1,nrow=3)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$EDR[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$EDR[2])
+knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$EDR[3])
+```
+
+### Connection-Belonging
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 7.5
+#| id: CB 
+index <- Constructs %in% Categories$CB
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],ncol=1,nrow=2)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$CB[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$CB[2])
+```
+
+
+### Focus-Motivation
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 7.5 
+#| id: FM
+index <- Constructs %in% Categories$FM
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],ncol=1,nrow=2)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$FM[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$FM[2])
+```
+
+
+### Personal Emotional Processing
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 7.5 
+#| id: PEP
+index <- Constructs %in% Categories$PEP
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],ncol=1,nrow=2)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$PEP[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$PEP[2])
+```
+
+
+### Aesthetic–Interest–Awe 
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 10.5 
+#| id: AIA
+index <- Constructs %in% Categories$AIA
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],ncol=1,nrow=3)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$AIA[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$AIA[2])
+knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$AIA[3])
+```
+
+
+### Listening Modes and Agency
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 18 
+#| id: LMA
+index <- Constructs %in% Categories$LMA
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],fig[[which(index)[4]]],fig[[which(index)[5]]],ncol=1,nrow=5)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$LMA[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$LMA[2])
+knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$LMA[3])
+knitr::kable(Items[[which(index)[4]]],digits=2,caption = Categories$LMA[4])
+knitr::kable(Items[[which(index)[5]]],digits=2,caption = Categories$LMA[5])
+```
+
+### Musical Meanings
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 10.5 
+#| id: MM
+index <- Constructs %in% Categories$MM
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],ncol=1,nrow=3)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$MM[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$MM[2])
+knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$MM[3])
+```
+
+### Qualia, Reward and Exposure
+
+```{r}
+#| echo: false
+#| fig.width: 7
+#| fig.height: 7.5 
+#| id: QRE
+index <- Constructs %in% Categories$QRE
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],ncol=1,nrow=3)
+knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$QRE[1])
+knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$QRE[2])
+knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$QRE[3])
+```
+
+See [item_decisions](item_decisions.qmd) for full details.
+
+
+```{r}
+#| echo: false
+#| id: save-data
+# Save data if needed
+if(file_write == TRUE){
+ save(DF,file = 'All_Item_data.Rdata')
+ save(Constructs,file = 'Constructs.Rdata')
+}
+```

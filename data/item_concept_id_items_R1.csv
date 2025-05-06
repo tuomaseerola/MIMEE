@@ -1,0 +1,496 @@
+Concept + Q# ID,Combined
+RX1,The music made me feel calm or relaxed
+RX2,The music helped me chill out
+RX3,I expected the music to make me feel at ease
+RX4,Listening to music eased my tension.
+RX5,Music alleviated my stress.
+RX6,I lost track of time while listening to the music
+RX7,I knew that this music would calm me down
+RX8,Music eased me into a calm state
+RX9,Music provided a relaxing mood
+RX10,Music provided a sense of stillness.
+RX11,I rested with the music
+RX12,I turned into the music to feel relaxed.
+RX13,Relaxing with the music made me feel better
+RX14,Relaxing to music prepared me to do other things
+RX15,Listening to music helped me recuperate
+RX16,The calm state of the music prepared me for other things
+RX17,Listening to music helped me fall asleep
+RX18,Listening to music helped me relax
+RX19,Listening to music helped calm me down
+RX20,I was listening to music with my friends to relax
+RX21,I could picture my friends and I relaxing to this type of music
+RX22,It was socially appropriate to relax with the music 
+RX23,People would have questioned my choice of calming music 
+RX24,I was aware of the calming effect of the music
+RX25,I wanted to use my music to set a more soothing mood
+RX26,I wanted to listen to my music to feel more relaxed
+EJ1,I found delight in the music.
+EJ2,The music gave me pleasure
+EJ3,I enjoyed listening to the music
+EJ4,I had to hum or sing along to the music
+EJ5,I enjoyed immersing myself in the music
+EJ6,The music continued the good time
+EJ7,I felt like I was having a good time with the music
+EJ8,I enjoyed how the music made me feel
+EJ9,The music made the experience so much more enjoyable
+EJ10,The music made me have a good time
+EJ11,The music kept good times going
+EJ12,I was listening to the music to sing or hum along
+EJ13,Listening to music was a good way of entertaining myself
+EJ14,I listened to music because it was delightful to do so
+EJ15,I listened to music to pass time
+EJ16,I enjoyed the music
+EJ17,I expected to have fun with this music from what people have told me about it
+EJ18,I had fun with the music in a similar way to how my friends and I would
+EJ19,I felt alienated because I was enjoying the music
+EJ20,People would have agreed that my music is more enjoyable
+EJ21,I enjoyed the music more because I got to choose it
+EJ22,I appreciated the musical surprises
+EJ23,I enjoyed having control over the music
+DT1,I was easily distracted by the music
+DT2,The music helped me escape from my daily routine
+DT3,Music distracted my mind from the outside world
+DT4,I got completely absorbed by the music where all of my attention was on it
+DT5,The music made me forget what I was thinking about 
+DT6,I was so involved in the music that I forgot about my surroundings
+DT7,Music acted as a mental shield against my distressing thoughts.
+DT8,The music helped me break away from reality
+DT9,It helped to have some background music on to distract me
+DT10,Listening to music made doing other things more pleasant
+DT11,Listening to music allowed for breathing space in the middle of my day
+DT12,I was totally wrapped up in listening to or playing the music that I did not think of anything else
+DT13,The music let me temporarily forget where I was
+DT14,The music allowed me to momentarily disconnect from my surroundings.
+DT15,Music provided a diversion
+DT16,I listened to the music to make the experience less boring
+DT17,Listening to music enabled me to kill time
+DT18,Music allowed me to navigate my emotions to find solace.
+DT19,I sought music out to distract me from social interactions.
+DT20,I felt distracted by the music more than someone should be
+DT21,I felt judged after letting myself get distracted by the music
+DT22,I wanted the music to be distracting 
+DT23,I chose to listen to music as a distraction
+GC1,I felt more connected with other people because of the music
+GC2,I felt a bond with the other people listening to the music
+GC3,The music demonstracted what cultural group I belong to
+GC4,The music provided a sense of connection.
+GC5,I felt connected to the performers
+GC6,Having similar music tastes made me feel connected to others.
+GC7,Listening to music made me feel connected with my friends
+GC8,The music made me feel connected with others
+GC9,The music brought me closer to the people I love
+GC10,Sharing the music with others enhanced my enjoyment.
+GC11,I felt connected to the people I was sharing this musical experience with
+GC12,The music was something my peers would like 
+GC13,The music expressed the uniqueness of my culture
+GC14,Other people's opinions influenced how I engaged with the music.
+GC15,Listening to music made me feel that belong to a group
+GC16,The music made me feel more connected to a group
+GC17,Listening to music allowed me to be myself while in company
+GC18,Listening to the music reminded me of how much my friends like it
+GC19,I felt compelled to conform to others' musical preferences 
+GC20,The music was bringing people together
+GC21,I desired to have control over the music selection.
+GC22,I preferred that someone else was selecting the music
+GC23,I had an urge to control the music that was playing.
+GC24,The music was better than what I would have picked
+SL1,The music kept me company
+SL2,I liked singing or playing along with other people
+SL3,I felt lonely while listening to the music
+SL4,The music made me feel like someone understood me
+SL5,The music made me feel like somebody else feels the same as me
+SL6,Listening to music made me feel less lonely
+SL7,Listening to music was a social experience
+SL8,Listening to music was a reason to meet my friends
+SL9,The music made me feel connected to the people I care about
+SL10,"I felt comforted by the music, as if it understood me "
+SL11,The music made me feel connected with others feeling the same way
+SL12,The music helped me feel closer to people
+SL13,The music helped me meet other people
+SL14,Not listening to music made me feel lonely
+SL15,The music helped me feel closer to what I love
+SL16,The music helped me form friendships with people who have similar musical tastes
+SL17,The music helped me feel less alone
+SL18,I felt a special connection to a person I shared this music with
+SL19,The music felt like a friend who understood my worries
+SL20,I felt annoyed by an interuption in the music
+SL21,I felt welcomed by the community or fans of the music
+SL22,The music kept me from feeling lonely
+SL23,I was the reason my friends gained their musical taste
+SL24,What music was being played determined how I felt about going out / socialising
+EM1,Listening to music gave me the energy I needed
+EM2,The music pumped me up
+EM3,I was energised from listening to the music
+EM4,The music improved my mood
+EM5,Listening to music made me excited
+EM6,I knew the music would improve my mood
+EM7,Listening to music enhanced my mood
+EM8,I wanted to feel better so I tried to do some music related activity
+EM9,I listened to the music to reduce my anxiety 
+EM10,Listening to music perked me up
+EM11,I got new energy from the music 
+EM12,I wanted the music to take thoughts out of my head
+EM13,The music made the experience to be less boring
+EM14,Listening to music made me more alert
+EM15,Listening to music put me in the right mood for going out
+EM16,I wanted the music to take my mind off of things
+EM17,The music motivated me to get ready
+EM18,The music improved my mood
+EM19,The music raised my energy
+EM20,Someone told me this music would improve my mood
+EM21,The music was a socially appropriate way of improving my mood
+EM22,Someone told me this music was good for getting pumped up 
+EM23,I wanted to control the music so I could motivate myself
+EM24,I listened to music that I knew would improve my mood
+MF1,I concentrated more because I was listening to the right kind of music
+MF2,Music helped me focus on what I was doing
+MF3,The music motivated me 
+MF4,The music made it easy to keep track of my thoughts and feelings
+MF5,The music let me focus on the present moment
+MF6,I was so caught up in the music that I did not notice anything else
+MF7,The music distracted me from what I wanted to do
+MF8,Being motivated by the music felt productive
+MF9,I felt accomplished or motivated by listening to music
+MF10,I needed to listen to music to get myself in the right mood for going out
+MF11,I wanted the music to motivate me
+MF12,The music helped me accomplish work I needed to do
+MF13,I was listening to music to prevent boredom while doing other things
+MF14,Listening to music enhanced my motivation to do a certain thing
+MF15,I needed music on in the background 
+MF16,I listened to music because it made working easier
+MF17,Doing things seemed effortless while listening to music
+MF18,Listening to music made time pass faster
+MF19,I felt distracted by other people so I used the music to focus
+MF20,This was the music people said I needed to use in order to focus
+MF21,The music I was listening to would have made people assume I was motivating myself
+MF22,I wanted to control my situation so I put on music to motivate me
+MF23,I chose to listen to music to help me focus
+CC1,The music was comforting to me
+CC2,The music helped me reflect 
+CC3,The music helped me process my emotions
+CC4,I felt like the music supported my ideas
+CC5,The music pushed my worries aside
+CC6,The music helped me understand different feelings in myself
+CC7,The music made me feel secure
+CC8,The music was a way to forget about my worries
+CC9,Listening to music comforted me 
+CC10,The music was helping me work through a hard experience
+CC11,The music clarified what I was feeling about something
+CC12,Listening to music comforted me from my sorrow
+CC13,I found solace in the music
+CC14,I felt overwhelmed but I found solace in the music
+CC15,Listening to the music let me cope with my worries
+CC16,The music reduced my stress
+CC17,I used the music to cope with my situation
+CC18,The music was therapy of my soul
+CC19,Listening to the music was comforting
+CC20,The music let me reflect on how I was feeling
+CC21,Everyone was using the music to cope with the situation 
+CC22,The music made reflect about how others might be feeling
+CC23,It was socially appropriate to use music to cope with what was happening
+CC24,The music allowed for people to reflect on their emotions
+CC25,The music helped me cope with how the situation made me feel
+CC26,I controlled my feelings by processing them through the music
+EF1,I knew the song would cause me to express how I was feeling
+EF2,Listening to music allows me to express myself
+EF3,The music expressed what I could not
+EF4,The music alleviated inner tension I had
+EF5,Listening to music gave me a way to let off steam
+EF6,I vented my emotions by listening to music that expressed my feelings
+EF7,The music reflected my mood
+EF8,I wanted the music to match how I felt
+EF9,I wanted the music to express something other than what I was feeling
+EF10,The music let me vent my frustration
+EF11,I wanted the music to express how miserable I felt
+EF12,Listening to music helped me express how I was feeling
+EF13,I controlled my emotions by expressing them through music
+EF14,I listened to the music for the feeling it conveyed to me
+EF15,I wanted to express my emotions after hearing the music
+EF16,Listening to the music enabled me to work off my aggression
+EF17,The music helped me express myself
+EF18,The music let me express my feelings
+EF19,The music let me express how I felt about someone
+EF24,The music expressed to others how I felt
+EF20,It was an appropriate time to use music to express my feelings
+EF21,I used the appropriate music to show others how I was feeling
+EF22,I was careful in how I expressed my emotions after hearing the music
+EF23,I used the music to express how I was feeling
+MS1,I was lifted up into the air by the music
+MS2,I experienced reality differently while listening to the music
+MS3,The music moved my soul
+MS4,"I was completely immersed in the music, as if my whole state of consciousness had been temporarily altered"
+MS5,The music had supernatural meaning to me
+MS6,I felt moved while listening to the music
+MS7,I wanted the music to evoke strong feelings in me
+MS8,I wanted my soul to travel with the music
+MS9,I felt the music move my soul
+MS10,I felt spiritually connected while listening to the music
+MS11,The music helped me 'step outside' of my usual self to experience an entirely different state of being
+MS12,The music prepared me for spiritual experiences
+MS13,I listened to the music to support my religious faith
+MS14,The music related to my spirituality
+MS15,I was emotionally moved by the music
+MS16,I felt moved by the music because of how other people felt
+MS17,I felt spiritually connected to other people that listen to this music
+MS18,It was socially acceptable to spirituality connect with the music
+MS19,I wanted to control the music to control my spiritual connection
+MS20,I had to be in control of where the music took me
+CU1,The music helped me understand the world better
+CU2,Listening to the music was a rewarding experience
+CU3,The music inspired me to think about important issues
+CU4,Listening to the music was an intellectual experience for me
+CU5,It was exciting to figure out where the music would go next
+CU6,I wanted the music to make me feel something new 
+CU7,I wanted to know why the music was making me feel a certain way
+CU8,I was curious about how the music would make me feel
+CU9,The music made me curious about what was happening around me
+CU10,Being interested in the music prepared me for what happened next
+CU11,Listening to the music stimulated my curiosity
+CU12,My musical curiosity helped me understand the experience
+CU13,The music sparked my curiosity
+CU14,I wondered how other people felt about the music
+CU15,I thought other people were as curious about the music as I was
+CU16,My curiousity about the music was socially appropriate at the time
+CU17,I wanted to listen to new and unfamiliar music
+CU18,I let go of control to experience new and unfamiliar music
+AE1,The music was appropriate for my sense of aesthetics
+AE2,The music gave me a magnificent experience
+AE3,I appreciated the beauty of the music
+AE4,I enjoyed the music as art
+AE5,The music evoked a strong emotional experience in me
+AE6,The music was appropriate for the aesthetics of the experience
+AE7,I wanted to feel strong emotions from the music
+AE8,The music enhanced my emotions toward the total experience
+AE9,Music made the atmosphere more pleasant
+AE10,The music was aesthetically right for the situation
+AE11,I felt prepared to experience strong emotions from the music
+AE12,I felt ready for the music to cause strong emotions in me
+AE13,The music matched the aesthetics of the situation
+AE14,The experience was fulfilled by the beauty of music
+AE15,The music gave me an unforgettable experience
+AE16,I matched the music with the aesthetics of a group
+AE17,The music let me share a strong experience with someone 
+AE18,The music strongly boosted my shared experience with someone
+AE19,I needed the music to perfectly fit the moment
+DF1,I found myself not paying attention to the music I was listening to 
+DF2,I noticed there was music playing
+DF3,My attention was toward the situation rather than anything else
+DF4,I noticed out of nowhere that music was playing
+DF5,Music was only a the portion of the background noise for me
+DF6,I only noticed what the music was making me feel after sometime
+DF7,I realised after a while that the music was making me feel something
+DF8,The music was unrelated to how I felt in the experience
+DF9,The music played a significant role in how I was feeling
+DF10,"I was ""running on automatic"" in the situation without much awareness toward anything else"
+DF11,I was preoccupied with more important things than music
+DF12,The music only provided ambience for the experience
+DF13,I was focused on something more important than listening to the music
+DF14,I only noticed the music when it was pointed out to me
+DF15,I paid more attention to other things rather than the music
+DF16,The music was apparently something I should have focused on
+DF17,I was actively paying attention to the music I heard
+DF18,I considered what time it was and where I was when I decided to listen to music
+BA1,I paid attention to how the music made my whole body feel
+BA2,The music made me dance
+BA3,I was aware of how my body was moving to the music
+BA4,I had to tap or move to the beat of the music
+BA5,I experienced a physical reaction from the music
+BA6,My body moved with the music
+BA7,Listening to music soothed my physical pain
+BA8,I paid attention to how my body moved to the music
+BA9,I was aware of how I felt while moving to the music
+BA10,It felt right to move with the music
+BA11,Being physically connected with the music heightened my emotions
+BA12,My movements coincided with the music
+BA13,The music allowed me to try out new movements
+BA14,I was focused on playing or singing along with the music
+BA15,The music contributed to my physical health
+BA16,Listening to music made me feel fitter
+BA17,I was listening to music to dance to it
+BA18,I aligned my movement to how someone else would move to the music
+BA19,I felt synchronised with how other people were moving
+BA20,The social situation called for moving to the music
+BA21,I felt in control of how my body moved to the music
+BA22,I was in control of how my body moved to the music
+EA1,I noticed that the music was changing my emotions
+EA2,I got emotional while listening
+EA3,I experienced a wide range of emotions while listening to the music
+EA4,I listened because the music contained emotion
+EA5,I listened to a song that made me feel a certain emotion
+EA6,When I was listening to the music I felt very emotional
+EA7,The music made me feel emotional
+EA8,The music caused me to feel a certain emotion
+EA9,The music took me on an emotional journey
+EA10,My emotions changed as I continued to listen to the music
+EA11,I could explain what emotions the music evoked for me 
+EA12,Listening to music really affected my mood
+EA13,I used music as preparation for my emotions 
+EA14,My emotions informed me of the type of music I should listen to
+EA15,I focused on the emotional experience I was getting from the music
+EA16,My focus was on my emotions while I was listening to the music
+EA17,I could easily sense how the artist felt 
+EA18,I guessed the emotions that the performers were feeling
+EA19,I thought other people would judge how I felt toward the music
+EA20,I kept the emotions I was feeling toward the music to myself
+EA21,I wanted to be in control of how the music made me feel
+AA1,The music had an influence on what I was thinking about
+AA2,The music induced visual imagery for me
+AA3,The music put fantastic images in my head
+AA4,Listening to music made me think about different experiences I have had
+AA5,The music helped me experience the moment as I would have as a child
+AA6,I saw vivid images in my head during the musical experience
+AA7,I felt nostalgic listening to the music
+AA8,I imaged how the music would sound in different contexts
+AA9,The music reminded me of feeling a certain way in a different experience
+AA10,I used the music to think about how I was feeling
+AA11,I mentally compared this experience with a different experience that shared the same piece of music
+AA12,The attention I paid my emotions during the experience changed what I thought about
+AA13,Listening to music reminded me of feeling a certain way
+AA14,The music led my thoughts somewhere else
+AA15,The music made me contemplate 
+AA16,I was lost in thought while listening to the music
+AA17,The music helped me reminisce 
+AA18,The music was intellectually stimulating
+AA19,The music reminded me of a particular person
+AA20,"The music evoked a memory of a person, place, or experience"
+AA21,The music helped me learn something about another person
+AA22,The music told me what other people might be thinking about
+AA23,The thoughts I had while listening to the music would have been socially appropriate
+AA24,I controlled my emotions toward the music by changing the way I thought about the experience
+AA25,I wanted control over the music so I could think properly
+SA1,I was focused on patterns or themes in the music
+SA2,I focused on how all of the different parts of the music came together 
+SA3,I listened for how the patterns changed in the music
+SA4,I transformed sounds into music by the way I was listening
+SA5,I had a clear idea of what to listen for when I heard what was playing
+SA6,I focused on hearing different layers in the music
+SA7,"As the music progressed, the themes or melodies made me feel differently"
+SA8,I tried to match my emotions to the themes happening in the music
+SA9,"I followed a specific sound, pattern, or theme on an emotional journey"
+SA10,Focusing on the structure of the music prepared me 
+SA11,Listening for details in the music allowed me to anticipate what came next
+SA12,I listened to understand something about the musical structure
+SA13,"I focused on connecting to the musical content, themes, or patterns of sound"
+SA14,I could tell they were singing or playing out of time with the beat
+SA15,I could tell they were singing or playing out of tune
+SA16,I was judging the quality of the artist
+SA17,I felt encouraged to focus on the structure of the music
+SA18,I had no idea if I would be in tune with the music
+SA19,I chose to pay attention to the structural development of the music
+RC1,I focused all my attention toward the small details of the music
+RC2,I gained new insights about the music by focusing on the small details
+RC3,I focused on subtle aspects of the music
+RC4,I paid attention to small details in the music for a long period of time
+RC5,I was analysing the sublte complexity of the music
+RC6,I was hyper aware of the small changes in the music because of how they affected my emotions
+RC7,Focusing on specific musical details made me more aware of my emotions
+RC8,I focused so much on the details of the music I forgot about everything else around me
+RC9,I focused intensely on the individual sounds to prepare for any changes
+RC10,I concentrated on the music rather than doing anything else
+RC11,I heard all of the intricate details in the music
+RC12,I was so caught up in the music I forgot about the world outside of myself
+RC13,I was attentive toward what other people thought about the small musical details
+RC14,I focused so much on listening to the music I forgot if someone else was there
+RC15,It felt socially appropriate to focus intently on the music
+RC16,I chose to analyse the minor details of the music
+RC17,I needed to focus on analysing the sounds embedded in the music
+ST1,The content of the music helped me understand what it was trying to say
+ST2,"I found meaning in the music by listening for the form, harmony, melody, or rhythm"
+ST3,I found meaning by listening to individual parts of the music
+ST4,I was interested in understanding the structure of the music
+ST5,I tried to understand the music completely
+ST6,I put together specific parts of the music to understand the meaning of the whole piece
+ST7,I was interested in how the written score could be organised or laid out 
+ST8,How all of the musical parts came together was meaningful
+ST9,The musical structure meant something because of how it made me feel
+ST10,My emotions were aligned with the expression of emotion coming from the music
+ST11,"My emotions were aligned with the harmony, melody, or rhythm of the music"
+ST12,The music expressed something that I could not express in words
+ST13,"The harmony, melody, or rhythm prepared me for upcoming changes "
+ST14,Understanding the meaning behind the musical structure prepared me for new experiences
+ST15,I learned about what made a new piece meaningful
+ST16,I learned what parts were important for developing the meaning of the music 
+ST17,I tried to understand what the music was trying to communicate
+ST18,The structure of the music allowed everyone to understand its meaning
+ST19,I felt that meaning came from the content or structure of the music 
+ST20,People said I would understand the meaning of the music by listening for it's content or structure
+ST21,The things that made up the music are important to me
+ST22,How the music is structured is important to me
+ST23,I identified what was special about the music
+SE1,The music expressed something personal and touching to me
+SE2,I found the lyrics to be personally meaningful
+SE3,The music affected my personal identity 
+SE4,I was reminded of a past experience I had with this type of music
+SE5,The music made me stop what I was doing to appreciate it fully 
+SE6,The music helped me understand myself
+SE7,I recognized elements of myself in the lyrics 
+SE8,The music reminded me of personal memories 
+SE9,I always think of the same person when I hear this type of music
+SE10,The music encapsulates a certain time of my life
+SE11,The experience was meaningful because the music gave me an unforgettable moment
+SE12,I associate this music with specific memories
+SE13,I associate this music with particular values I want to have
+SE14,The music helped me learn something about myself
+SE15,I felt free to be who ever I wanted when the music came on
+SE16,The music is meaningful because it structured my daily life
+SE17,The music added meaning to my life
+SE18,I remembered an experience I had while listening to this music with others
+SE19,Other people helped me identify why the music was meaningful for me
+SE20,I got meaning from identifying with a particular music scene
+SE21,The music was meaningful to someone I know
+SE22,The experience was so important that I had to have my own music 
+SE23,The experience bothered me because I could not listen to music 100% as I usually / normally do
+SO1,Listening to music meant I was connected to the world
+SO2,The music is important to my cultural history or identity
+SO3,The music showed others my political engagement
+SO4,I felt what the artist or composer wanted me to feel in the music
+SO5,I understood the songwriter / composer's intentions completely
+SO6,I got meaning by imagining the musicians playing and performing
+SO7,I mentally compared the meaning of the music to the culture that produced the music with what it meant in present-day culture
+SO8,The music acted as an extension of its time period
+SO9,I was thinking about the emotional life of the composer or musician
+SO10,I understood the emotional meaning the writer / performer was trying to express
+SO11,I admired the technique of the musicians
+SO12,The music helped me understand what others might be going through
+SO13,The music helped me sympathise with issues bigger than myself
+SO14,The music means something if I feel connected to what the artist was feeling
+SO15,The music informed me about what was popular
+SO16,The music made me feel up to date with what my friends listen to
+SO17,I listened because I'm interested in the musicians or band
+SO18,I learned more about the world through the musical experience
+SO19,Listening to music expressed my political attitude
+SO20,I identified with the artists who made the music
+SO21,I cared about what life the artist had at the time they produced the music
+SO22,I was interested in how the different performers came together to produce the music
+SO23,The artist or band is so popular I had to know their music
+SO24,I understood the meaning behind the music from what people have said about it
+SO25,The meaning of the music was similar to other songs or pieces I know
+SO26,I considered the hisotorical context of the music to understand it's meaning
+QU1,"I experienced physical sensations (tears, shivers, etc.) while listening to the music"
+QU2,"I noticed the music had an effect on my body, making me move in some way"
+QU3,I got chills or goosebumps from the music
+QU4,"The music changed my body (e.g. heartbeat, prickling, chills)"
+QU5,Listening to the music gave me goosebumps
+QU6,The music felt so great that I got goosebumps
+QU7,The experience had me on the verge of crying from the song
+QU8,The music sent shivers down my spine
+PO1,This experience informed me about what music I like
+PO2,I was looking to find new music
+PO3,I expected to encounter new music
+PO4,I knew I was hearing the song for the first time
+PO5,I listened to music because it sounded like it would fit into my life
+PO6,I listened to the music to know what was going on in the music scene
+PO7,I had to bring headphones with me because I would be in public
+PO8,I wanted to leave because of the music
+PO9,I had to listen to the music when I wanted
+FA1,I was compelled to listen because the song is so familiar
+FA2,I am familiar with the musical genre
+FA3,The music's familiarity compelled me to listen.
+FA4,The music suits this experience because it was made for it 
+FA5,The experience had a familiar vibe because of the music
+FA6,The music evoked a familiar feeling during the experience.
+FA7,I actively listened to the music because I am familiar with the genre.
+FA8,I felt like I had to listen because of the widespread love for this music.
+FA9,I wanted to listen on a device that would allow me to specifically choose what music I listen to 
+FA10,I intentionally chose to listen to familiar songs over unfamiliar ones.

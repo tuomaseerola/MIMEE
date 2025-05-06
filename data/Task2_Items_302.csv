@@ -1,0 +1,303 @@
+ID,Rele_ID,Repre_ID,Item
+EM18,FM_Rele_1,FM_Repre_1,The music improved my mood
+EM50,FM_Rele_2,FM_Repre_2,The music was motivating me to do something
+EM2,FM_Rele_3,FM_Repre_3,The music pumped me up
+EM51,FM_Rele_4,FM_Repre_4,I felt energised by the music
+EM52,FM_Rele_5,FM_Repre_5,I wanted to feel energised by the music
+EM53,FM_Rele_6,FM_Repre_6,The music helped me manage my level of energy
+EM54,FM_Rele_7,FM_Repre_7,I slowed down my energy with the music
+EM14,FM_Rele_8,FM_Repre_8,Listening to music made me more alert
+EM55,FM_Rele_9,FM_Repre_9,The music helped me to moderate my energy
+EM56,FM_Rele_10,FM_Repre_10,I wanted the music to stimulate my energy
+MF2,FM_Rele_11,FM_Repre_11,Music helped me focus on what I was doing
+MF12,FM_Rele_12,FM_Repre_12,The music helped me accomplish work I needed to do
+MF23,FM_Rele_13,FM_Repre_13,I chose to listen to music to help me focus
+MF60,FM_Rele_14,FM_Repre_14,The music motivated me to finish the task I had to do
+MF5,FM_Rele_15,FM_Repre_15,The music let me focus on the present moment
+MF8,FM_Rele_16,FM_Repre_16,Being motivated by the music felt productive
+MF50,FM_Rele_17,FM_Repre_17,I was more focused while listening to the music
+MF52,FM_Rele_18,FM_Repre_18,The music helped me concentrate
+MF53,FM_Rele_19,FM_Repre_19,The music allowed me to coordinate my actions with another person
+MF54,FM_Rele_20,FM_Repre_20,The music kept me concentrated on the task I was supposed to do
+MF55,FM_Rele_21,FM_Repre_21,I used the music to block out distractions 
+MF56,FM_Rele_22,FM_Repre_22,Coordinating my actions to the music helped me focus
+MF57,FM_Rele_23,FM_Repre_23,The music reduced my motivation 
+MF58,FM_Rele_24,FM_Repre_24,The music made me less productive 
+MF59,FM_Rele_25,FM_Repre_25,I used the music to motivate myself
+GC1,CB_Rele_1,CB_Repre_1,I felt more connected with other people because of the music
+GC50,CB_Rele_2,CB_Repre_2,The music made me feel more connected with those around me
+GC2,CB_Rele_3,CB_Repre_3,I felt a bond with the other people listening to the music
+GC16,CB_Rele_4,CB_Repre_4,The music made me feel more connected to a group
+GC52,CB_Rele_5,CB_Repre_5,I felt like a member of a group while listening to the music
+GC53,CB_Rele_6,CB_Repre_6,I felt connected with people who also listen to this music
+GC11,CB_Rele_7,CB_Repre_7,I felt connected to the people I was sharing this musical experience with
+GC57,CB_Rele_8,CB_Repre_8,The music brought people together
+GC10,CB_Rele_9,CB_Repre_9,Sharing the music with others enhanced my enjoyment
+GC55,CB_Rele_10,CB_Repre_10,The music made me feel connected to my peers or family
+GC54,CB_Rele_11,CB_Repre_11,I thought of sharing this music with my peers
+GC58,CB_Rele_12,CB_Repre_12,The music disconnected me from the group
+GC59,CB_Rele_13,CB_Repre_13,The music made me feel excluded from the group
+EF19,CB_Rele_14,CB_Repre_14,The music let me express how I felt about someone
+EF50,CB_Rele_15,CB_Repre_15,The music communicated my feelings toward someone
+EF24,CB_Rele_16,CB_Repre_16,The music expressed to others how I felt
+MS17,CB_Rele_17,CB_Repre_17,I felt spiritually connected to other people that listen to this music
+CU14,CB_Rele_18,CB_Repre_18,I wondered how other people felt about the music
+SL57,CB_Rele_19,CB_Repre_19,I used the music to keep me company
+SL9,CB_Rele_20,CB_Repre_20,The music made me feel connected to the people I care about
+SL12,CB_Rele_21,CB_Repre_21,The music helped me feel closer to people
+SL51,CB_Rele_22,CB_Repre_22,The music helped me feel less lonely
+SL4,CB_Rele_23,CB_Repre_23,The music made me feel like someone understood me
+SL6,CB_Rele_24,CB_Repre_24,Listening to music made me feel less lonely
+SL52,CB_Rele_25,CB_Repre_25,I felt a special connection to the people I shared this music with
+SL50,CB_Rele_26,CB_Repre_26,I shared the listening experience with others
+SL19,CB_Rele_27,CB_Repre_27,The music felt like a friend who understood my worries
+SL53,CB_Rele_28,CB_Repre_28,The music made me feel like I belonged
+SL54,CB_Rele_29,CB_Repre_29,The music prompted a shared experience
+SL55,CB_Rele_30,CB_Repre_30,I used the music to get away from people
+SL3,CB_Rele_31,CB_Repre_31,I felt lonely while listening to the music
+SL56,CB_Rele_32,CB_Repre_32,Listening to the music made me realise I did not belong
+RX1,EDR_Rele_1,EDR_Repre_1,The music made me feel calm or relaxed
+RX9,EDR_Rele_2,EDR_Repre_2,Music provided a relaxing mood
+RX13,EDR_Rele_3,EDR_Repre_3,Relaxing with the music made me feel better
+RX7,EDR_Rele_4,EDR_Repre_4,I knew that this music would calm me down
+RX51,EDR_Rele_5,EDR_Repre_5,I was using the music to relax
+RX26,EDR_Rele_6,EDR_Repre_6,I wanted to listen to my music to feel more relaxed
+RX50,EDR_Rele_7,EDR_Repre_7,I knew the music would make me feel at ease
+RX52,EDR_Rele_8,EDR_Repre_8,Listening to the music helped me recharge
+RX57,EDR_Rele_9,EDR_Repre_9,I used the music to soothe my mind
+RX56,EDR_Rele_10,EDR_Repre_10,I used the music to calm myself down and relax
+RX54,EDR_Rele_11,EDR_Repre_11,Relaxing with the music felt appropriate 
+RX55,EDR_Rele_12,EDR_Repre_12,Time passed slowly while listening to the music
+RX58,EDR_Rele_13,EDR_Repre_13,The music stopped me from being able to relax
+RX59,EDR_Rele_14,EDR_Repre_14,I wanted the music to stop so I could relax
+RX60,EDR_Rele_15,EDR_Repre_15,Listening to the music was a waste of my time
+EJ2,EDR_Rele_16,EDR_Repre_16,The music gave me pleasure
+EJ52,EDR_Rele_17,EDR_Repre_17,I used the music to have a good time
+EJ51,EDR_Rele_18,EDR_Repre_18,I was having a good time listening to the music
+EJ55,EDR_Rele_19,EDR_Repre_19,I felt like I was enjoying myself because of the music
+EJ50,EDR_Rele_20,EDR_Repre_20,I was delighted by the music
+EJ13,EDR_Rele_21,EDR_Repre_21,Listening to music was a good way of entertaining myself
+EJ16,EDR_Rele_22,EDR_Repre_22,I enjoyed the music
+EJ53,EDR_Rele_23,EDR_Repre_23,I was able to enjoy my time thanks to the music 
+EJ8,EDR_Rele_24,EDR_Repre_24,I enjoyed how the music made me feel
+EJ55,EDR_Rele_25,EDR_Repre_25,I was anxious to show that I enjoyed the music
+EJ56,EDR_Rele_26,EDR_Repre_26,I was annoyed by the music
+DT7,EDR_Rele_27,EDR_Repre_27,Music acted as a mental shield against my distressing thoughts
+DT56,EDR_Rele_28,EDR_Repre_28,I wanted to have background music on to distract myself
+DT3,EDR_Rele_29,EDR_Repre_29,Music distracted my mind from the outside world
+DT53,EDR_Rele_30,EDR_Repre_30,The music helped me break away from the situation
+DT50,EDR_Rele_31,EDR_Repre_31,The music allowed me to escape from my daily routines
+DT54,EDR_Rele_32,EDR_Repre_32,The music momentarily disconnected me from my surroundings
+DT19,EDR_Rele_33,EDR_Repre_33,I sought music out to distract me from social interactions
+DT5,EDR_Rele_34,EDR_Repre_34,The music made me forget what I was thinking about
+DT52,EDR_Rele_35,EDR_Repre_35,I wanted the music to help me forget what I was doing
+CC5,EDR_Rele_36,EDR_Repre_36,The music pushed my worries aside
+MS2,AIA_Rele_1,AIA_Repre_1,I experienced reality differently while listening to the music
+MS50,AIA_Rele_2,AIA_Repre_2,"I was completely immersed in the music, as it altered my state of being"
+MS51,AIA_Rele_3,AIA_Repre_3,The music helped me understand an entirely different world view
+MS52,AIA_Rele_4,AIA_Repre_4,The music changed how I understood what was happening 
+MS58,AIA_Rele_5,AIA_Repre_5,The music changed how I understood myself
+MS53,AIA_Rele_6,AIA_Repre_6,The music provided me with a spiritual experience
+MS14,AIA_Rele_7,AIA_Repre_7,The music related to my spirituality
+MS54,AIA_Rele_8,AIA_Repre_8,I felt like the music was lifting me into the air
+MS7,AIA_Rele_9,AIA_Repre_9,I wanted the music to evoke strong feelings in me
+MS59,AIA_Rele_10,AIA_Repre_10,The music changed my perspective  
+MS56,AIA_Rele_11,AIA_Repre_11,I wanted the music to take me somewhere spiritually
+MS57,AIA_Rele_12,AIA_Repre_12,I was confused by how the music changed my experience
+CU8,AIA_Rele_13,AIA_Repre_13,I was curious about how the music would make me feel
+CU13,AIA_Rele_14,AIA_Repre_14,The music sparked my curiosity
+CU4,AIA_Rele_15,AIA_Repre_15,Listening to the music was an intellectual experience for me
+CU6,AIA_Rele_16,AIA_Repre_16,I wanted the music to make me feel something new
+CU11,AIA_Rele_17,AIA_Repre_17,Listening to the music stimulated my curiosity
+CU51,AIA_Rele_18,AIA_Repre_18,My curiosity helped me understand the musical experience
+CU52,AIA_Rele_19,AIA_Repre_19,I wanted to experience new or unfamiliar music
+CU18,AIA_Rele_20,AIA_Repre_20,I let go of control to experience new and unfamiliar music
+CU54,AIA_Rele_21,AIA_Repre_21,I wanted to find music similar to what I just heard
+CU55,AIA_Rele_22,AIA_Repre_22,I wanted to listen to the song again 
+CU56,AIA_Rele_23,AIA_Repre_23,I was excited to figure out where the music would go next
+CU57,AIA_Rele_24,AIA_Repre_24,The music made me feel bored 
+CU58,AIA_Rele_25,AIA_Repre_25,I was bored while listening to the music
+AE3,AIA_Rele_26,AIA_Repre_26,I appreciated the beauty of the music
+AE50,AIA_Rele_27,AIA_Repre_27,The experience was enhanced by the beauty of the music
+AE51,AIA_Rele_28,AIA_Repre_28,I had an unforgettable experience alongside the music
+AE52,AIA_Rele_29,AIA_Repre_29,I respected the music for its value as a piece of art
+AE53,AIA_Rele_30,AIA_Repre_30,The music seemed to be cultivated for my experience
+AE54,AIA_Rele_31,AIA_Repre_31,The music appropriately decorated my situation
+AE55,AIA_Rele_32,AIA_Repre_32,The music suited the experience as I expected it would
+AE56,AIA_Rele_33,AIA_Repre_33,I felt like the music was perfect for the experience
+AE57,AIA_Rele_34,AIA_Repre_34,The music overwhelmed everything else in the situation
+AE58,AIA_Rele_35,AIA_Repre_35,I was overloaded with information while listening to the music
+CC1,PEP_Rele_1,PEP_Repre_1,The music was comforting to me
+CC3,PEP_Rele_2,PEP_Repre_2,The music helped me process my emotions
+CC6,PEP_Rele_3,PEP_Repre_3,The music helped me understand different feelings in myself
+CC9,PEP_Rele_4,PEP_Repre_4,Listening to music comforted me
+CC13,PEP_Rele_5,PEP_Repre_5,I found solace in the music
+CC17,PEP_Rele_6,PEP_Repre_6,I used the music to cope with my situation
+CC50,PEP_Rele_7,PEP_Repre_7,I navigated my feelings by controlling the music
+CC7,PEP_Rele_8,PEP_Repre_8,The music made me feel secure
+CC51,PEP_Rele_9,PEP_Repre_9,The music helped me reflect on how I was feeling
+CC26,PEP_Rele_10,PEP_Repre_10,I controlled my feelings by processing them through the music
+CC52,PEP_Rele_11,PEP_Repre_11,The music was like therapy for me
+SL10,PEP_Rele_12,PEP_Repre_12,"I felt comforted by the music, as if it understood me"
+EF6,PEP_Rele_13,PEP_Repre_13,I vented my emotions by listening to music that expressed my feelings
+EF12,PEP_Rele_14,PEP_Repre_14,Listening to music helped me express how I was feeling
+EF23,PEP_Rele_15,PEP_Repre_15,I used the music to express how I was feeling
+EF51,PEP_Rele_16,PEP_Repre_16,Listening to music allowed me to emotionally express myself
+EF52,PEP_Rele_17,PEP_Repre_17,Listening to music allowed me to figure out how I wanted to express myself
+EF53,PEP_Rele_18,PEP_Repre_18,The experience made me aware of how I can express myself while listening to music
+EF3,PEP_Rele_19,PEP_Repre_19,The music expressed what I could not
+EF17,PEP_Rele_20,PEP_Repre_20,The music helped me express myself
+EF10,PEP_Rele_21,PEP_Repre_21,The music let me vent my frustration
+EF14,PEP_Rele_22,PEP_Repre_22,I listened to the music for the feeling it conveyed to me
+EF54,PEP_Rele_23,PEP_Repre_23,The music helped me release my mental tension 
+EF55,PEP_Rele_24,PEP_Repre_24,The music helped me work through my thoughts 
+EF15,PEP_Rele_25,PEP_Repre_25,I wanted to express my emotions after hearing the music
+MS60,PEP_Rele_26,PEP_Repre_26,My experience changed how I felt about the music
+AE7,PEP_Rele_27,PEP_Repre_27,I wanted to feel strong emotions from the music
+DF7,Dif_Rele_1,Dif_Repre_1,I realised after a while that the music was making me feel something
+DF50,Dif_Rele_2,Dif_Repre_2,I was more attentive to what I was doing than to the music
+DF17,Dif_Rele_3,Dif_Repre_3,I was actively paying attention to the music I heard
+DF52,Dif_Rele_4,Dif_Repre_4,Music was simply in the background for me
+DF53,Dif_Rele_5,Dif_Repre_5,The music was only background noise
+DF6,Dif_Rele_6,Dif_Repre_6,I only noticed what the music was making me feel after sometime
+DF13,Dif_Rele_7,Dif_Repre_7,I was focused on something more important than listening to the music
+DF54,Dif_Rele_8,Dif_Repre_8,I was more preoccupied with what I was going to do next than the music
+DF55,Dif_Rele_9,Dif_Repre_9,I was more preoccupied with what I was thinking about than the music
+DF56,Dif_Rele_10,Dif_Repre_10,I was more preoccupied with what I was feeling than the music
+DF12,Dif_Rele_11,Dif_Repre_11,The music only provided ambience for the experience
+DF61,Dif_Rele_12,Dif_Repre_12,"My attention was on other things happening at the time, rather than the music"
+DF62,Dif_Rele_13,Dif_Repre_13,The music was only playing to cover the silence
+BA1,Bod_Rele_1,Bod_Repre_1,I paid attention to how the music made my whole body feel
+BA2,Bod_Rele_2,Bod_Repre_2,The music made me dance
+BA51,Bod_Rele_3,Bod_Repre_3,It felt natural to tap or move along with the music
+BA6,Bod_Rele_4,Bod_Repre_4,My body moved with the music
+BA14,Bod_Rele_5,Bod_Repre_5,I was focused on playing or singing along with the music
+BA3,Bod_Rele_6,Bod_Repre_6,I was aware of how my body was moving to the music
+BA52,Bod_Rele_7,Bod_Repre_7,I noticed how my body was moving with the music
+BA10,Bod_Rele_8,Bod_Repre_8,It felt right to move with the music
+BA53,Bod_Rele_9,Bod_Repre_9,I felt synchronised with other people moving to the music
+BA54,Bod_Rele_10,Bod_Repre_10,The situation called for moving to the music
+BA55,Bod_Rele_11,Bod_Repre_11,I was aware of how moving to the music made me feel
+BA22,Bod_Rele_12,Bod_Repre_12,I was in control of how my body moved to the music
+BA56,Bod_Rele_13,Bod_Repre_13,I wanted to move along with the music
+EA1,Emo_Rele_1,Emo_Repre_1,I noticed that the music was changing my emotions
+EA16,Emo_Rele_2,Emo_Repre_2,My focus was on my emotions while I was listening to the music
+EA7,Emo_Rele_3,Emo_Repre_3,The music made me feel emotional
+EA21,Emo_Rele_4,Emo_Repre_4,I got emotional while listening
+EA50,Emo_Rele_5,Emo_Repre_5,The music made me feel a wide array of emotions
+EA51,Emo_Rele_6,Emo_Repre_6,I predominately felt one emotion while listening to the music
+EA52,Emo_Rele_7,Emo_Repre_7,My emotion(s) were particularly strong while listening to the music
+EA8,Emo_Rele_8,Emo_Repre_8,The music caused me to feel a certain emotion
+EA53,Emo_Rele_9,Emo_Repre_9,I noticed the music caused me to feel a certain way
+EA10,Emo_Rele_10,Emo_Repre_10,My emotions changed as I continued to listen to the music
+EA54,Emo_Rele_11,Emo_Repre_11,I felt one emotion morphed into another during the course of the music
+EA55,Emo_Rele_12,Emo_Repre_12,My emotions merged together as the music progressed
+EA56,Emo_Rele_13,Emo_Repre_13,I hardly noticed my emotions change as I listened to the music
+EA9,Emo_Rele_14,Emo_Repre_14,The music took me on an emotional journey
+EA57,Emo_Rele_15,Emo_Repre_15,I was in control of how the music made me feel
+DT18,Emo_Rele_16,Emo_Repre_16,Music allowed me to navigate my emotions to find solace
+MS15,Emo_Rele_17,Emo_Repre_17,I was emotionally moved by the music
+DF51,Emo_Rele_18,Emo_Repre_18,I paid more attention to what I was feeling than to the music
+DF9,Emo_Rele_19,Emo_Repre_19,The music played a significant role in how I was feeling
+AA1,Ass_Rele_1,Ass_Repre_1,The music had an influence on what I was thinking about
+AA16,Ass_Rele_2,Ass_Repre_2,I was lost in thought while listening to the music
+AA17,Ass_Rele_3,Ass_Repre_3,The music helped me reminisce
+AA53,Ass_Rele_4,Ass_Repre_4,I realised the music caused visual imagery in my mind
+AA4,Ass_Rele_5,Ass_Repre_5,Listening to music made me think about different experiences I have had
+AA50,Ass_Rele_6,Ass_Repre_6,The music put me in a reflective mood
+AA52,Ass_Rele_7,Ass_Repre_7,I felt nostalgic while listening to the music
+AA13,Ass_Rele_8,Ass_Repre_8,Listening to music reminded me of feeling a certain way
+AA14,Ass_Rele_9,Ass_Repre_9,The music led my thoughts somewhere else
+AA9,Ass_Rele_10,Ass_Repre_10,The music reminded me of feeling a certain way in a different experience
+AA10,Ass_Rele_11,Ass_Repre_11,I used the music to think about how I was feeling
+AA54,Ass_Rele_12,Ass_Repre_12,I realised I was creating a fictional story or scene along with the music
+SA50,StrA_Rele_1,StrA_Repre_1,Listening for musical cues allowed me to anticipate what was coming next 
+SA51,StrA_Rele_2,StrA_Repre_2,I chose to pay attention to how the music was developing
+SA52,StrA_Rele_3,StrA_Repre_3,I chose to pay attention to the melody of the music
+SA6,StrA_Rele_4,StrA_Repre_4,I focused on hearing different layers in the music
+SA53,StrA_Rele_5,StrA_Repre_5,I focused on hearing patterns in the music
+SA54,StrA_Rele_6,StrA_Repre_6,The melody of the music caught my attention
+SA55,StrA_Rele_7,StrA_Repre_7,I was focused on the progression of musical chords
+SA56,StrA_Rele_8,StrA_Repre_8,I focused on certain parts of the music to understand it differently
+ST4,StrA_Rele_9,StrA_Repre_9,I was interested in understanding the structure of the music
+EJ12,StrA_Rele_10,StrA_Repre_10,I was listening to the music to sing or hum along
+RC2,RCA_Rele_1,RCA_Repre_1,I gained new insights about the music by focusing on the small details
+RC50,RCA_Rele_2,RCA_Repre_2,I was so caught up in the music I was unaware of what was happening around me
+RC51,RCA_Rele_3,RCA_Repre_3,I was analysing the complexity of the music
+RC52,RCA_Rele_4,RCA_Repre_4,I focused so much on details of the music that I forgot about everything else around me
+RC10,RCA_Rele_5,RCA_Repre_5,I concentrated on the music rather than doing anything else
+RC53,RCA_Rele_6,RCA_Repre_6,I was analysing the micro details of the music
+RC3,RCA_Rele_7,RCA_Repre_7,I focused on subtle aspects of the music
+RC54,RCA_Rele_8,RCA_Repre_8,I was hyper fixated on the music to prepare for any changes in the music
+RC55,RCA_Rele_9,RCA_Repre_9,I was hyper fixated on the music to prepare for any changes in the situation
+RC7,RCA_Rele_10,RCA_Repre_10,Focusing on specific musical details made me more aware of my emotions
+ST9,StrM_Rele_1,StrM_Repre_1,The musical structure meant something because of how it made me feel
+ST22,StrM_Rele_2,StrM_Repre_2,How the music was structured is important to me
+ST54,StrM_Rele_3,StrM_Repre_3,I was important to me that the music developed in a certain way
+ST3,StrM_Rele_4,StrM_Repre_4,I found meaning by listening to individual parts of the music
+ST7,StrM_Rele_5,StrM_Repre_5,I was interested in how the written score could be organised or laid out
+ST12,StrM_Rele_6,StrM_Repre_6,The music expressed something that I could not express in words
+ST50,StrM_Rele_7,StrM_Repre_7,I made sense of what the music meant through images and/or stories in my mind
+ST51,StrM_Rele_8,StrM_Repre_8,I made sense of what the music meant in the context of what was happening in the moment
+ST10,StrM_Rele_9,StrM_Repre_9,My emotions were aligned with the expression of emotion coming from the music
+ST13,StrM_Rele_10,StrM_Repre_10,"The harmony, melody, or rhythm prepared me for upcoming changes"
+ST6,StrM_Rele_11,StrM_Repre_11,I put together specific parts of the music to understand the meaning of the whole piece
+ST52,StrM_Rele_12,StrM_Repre_12,I appreciated the melodic developments in the music
+ST53,StrM_Rele_13,StrM_Repre_13,I struggled to find something in the music itself that made it meaningful for me
+SE50,Sel_Rele_1,Sel_Repre_1,I found the music to be personally meaningful 
+SE51,Sel_Rele_2,Sel_Repre_2,I recognised myself in the music
+SE52,Sel_Rele_3,Sel_Repre_3,I think of the same people when I hear this type of music
+SE53,Sel_Rele_4,Sel_Repre_4,I remember a certain place when I hear this music
+SE54,Sel_Rele_5,Sel_Repre_5,The music reminded me of a certain time in my life
+SE12,Sel_Rele_6,Sel_Repre_6,I associate this music with specific memories
+SE18,Sel_Rele_7,Sel_Repre_7,I remembered an experience I had while listening to this music with others
+SE55,Sel_Rele_8,Sel_Repre_8,The music expressed something I found to be personally significant
+SE56,Sel_Rele_9,Sel_Repre_9,The music resonated with my personal identity
+SE14,Sel_Rele_10,Sel_Repre_10,The music helped me learn something about myself
+SE58,Sel_Rele_11,Sel_Repre_11,The music is special to someone close to me which is why I find it meaningful
+SE4,Sel_Rele_12,Sel_Repre_12,I was reminded of a past experience I had listening to this type of music
+SE59,Sel_Rele_13,Sel_Repre_13,The music helped me understand what I have been through
+SE60,Sel_Rele_14,Sel_Repre_14,I associate this music with particular values I have
+SE61,Sel_Rele_15,Sel_Repre_15,I felt free to be my true self when the music began playing
+SE62,Sel_Rele_16,Sel_Repre_16,I felt free to be a different version of myself when the music began playing
+SE63,Sel_Rele_17,Sel_Repre_17,I struggled to find a personal connection to the music
+SO51,Sou_Rele_1,Sou_Repre_1,The music was important to my sense of cultural identity
+SO52,Sou_Rele_2,Sou_Repre_2,The meaning of the music was enhanced by the performance of the musicians
+SO9,Sou_Rele_3,Sou_Repre_3,I was thinking about the emotional life of the composer or musician
+SO13,Sou_Rele_4,Sou_Repre_4,The music helped me sympathise with issues bigger than myself
+SO54,Sou_Rele_5,Sou_Repre_5,Listening to the music made me feel up-to-date with cultural trends
+SO55,Sou_Rele_6,Sou_Repre_6,The music helped me understand a different political attitude
+SO20,Sou_Rele_7,Sou_Repre_7,I identified with the artists who made the music
+SO56,Sou_Rele_8,Sou_Repre_8,I considered the music’s historical context to understand what it meant
+SO12,Sou_Rele_9,Sou_Repre_9,The music helped me understand what others might be going through
+SO57,Sou_Rele_10,Sou_Repre_10,My interest in the artist(s) is why I was listening to the music
+SO18,Sou_Rele_11,Sou_Repre_11,I learned more about the world through the musical experience
+SO58,Sou_Rele_12,Sou_Repre_12,The technique of the musicians helped me realise the music’s meaning
+SO59,Sou_Rele_13,Sou_Repre_13,I was thinking about what life the artist had at the time they created the music
+SO60,Sou_Rele_14,Sou_Repre_14,I was thinking about how the performers created the music together
+SO62,Sou_Rele_15,Sou_Repre_15,I connected to the message the artist(s) were trying to convey with the music
+GC51,Sou_Rele_16,Sou_Repre_16,The music connected me to my cultural identity
+QU50,Qua_Rele_1,Qua_Repre_1,"I experienced physical sensations (tears, shivers, goosebumps) while listening to the music"
+QU51,Qua_Rele_2,Qua_Repre_2,I experienced chills from the music
+QU5,Qua_Rele_3,Qua_Repre_3,Listening to the music gave me goosebumps
+QU8,Qua_Rele_4,Qua_Repre_4,The music sent shivers down my spine
+QU52,Qua_Rele_5,Qua_Repre_5,"While listening, I noticed sensations in my body change (heartbeat, prickling, goosebumps, temperature)"
+QU53,Qua_Rele_6,Qua_Repre_6,"While listening, I noticed tears starting to form in my eyes"
+QU54,Qua_Rele_7,Qua_Repre_7,My ears began to hurt after listening
+PO1,Exp_Rele_1,Exp_Repre_1,This experience informed me about what music I like
+PO50,Exp_Rele_2,Exp_Repre_2,I knew I had never heard the music before
+PO2,Exp_Rele_3,Exp_Repre_3,I was looking to find new music
+PO51,Exp_Rele_4,Exp_Repre_4,I was pleased to listen to the novelty of the music
+PO52,Exp_Rele_5,Exp_Repre_5,I chose to listen to music because it resonated with my personal values
+PO53,Exp_Rele_6,Exp_Repre_6,I chose to listen to music because it fit into what I was doing at the time
+PO54,Exp_Rele_7,Exp_Repre_7,I wanted to leave the place where the music was playing
+PO55,Exp_Rele_8,Exp_Repre_8,I was suprised at how much I liked the music
+FA1,Exp_Rele_9,Exp_Repre_9,I was compelled to listen because the song is so familiar
+FA50,Exp_Rele_10,Exp_Repre_10,I am familiar with this musical genre
+FA6,Exp_Rele_11,Exp_Repre_11,The music evoked a familiar feeling during the experience
+FA51,Exp_Rele_12,Exp_Repre_12,The experience felt familiar due to the music
+CU2,Exp_Rele_13,Exp_Repre_13,Listening to the music was a rewarding experience
+GC56,Exp_Rele_14,Exp_Repre_14,I conformed to my peers musical preferences
+PO56,Exp_Rele_15,Exp_Repre_15,I would prefer to listen to my music over any other right now
+PO57,Exp_Rele_16,Exp_Repre_16,I preferred the music for this experience
+PO58,Exp_Rele_17,Exp_Repre_17,I hated listening to the music

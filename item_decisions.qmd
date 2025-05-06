@@ -1,0 +1,2408 @@
+---
+title: "Expert Item Decisions, Round 1"
+author: "T. Eerola and C. Kirts"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+# Overview
+
+This document reports rationale for deciding the content of constructs for the instrument. Evaluating content validity is only one portion of establishing an interpretation of construct validity. It is important to scrutinize how theoretical concepts of a scale are operationalized by the items, whether they are relevant to construct being measured, or if the universe of items sampled comprises a sufficient representative sample. 
+
+14 experts participated in the 1st study evaluating the content validity of the constructs for the Instrument. Each provided ratings of items relevance (1 = Not Relevant to 4 Extremely Relevant), feedback about each item, and feedback of the item sample created to represent each hierarchical construct. 
+
+The scores obtained from the relevance ratings were composed into the tables below. Using inter-rater consensus analyses, Content Validity Indexes (CVI) and Content Validity Ratio (CVR), we were able to determine which items the experts agreed to be relevant for the construct. We used the CV.I.adj to determine the fit of the items, Green = acceptable, Black = needs review, and Red = Not acceptable. The tables are organized in decreasing order of fit for the consensus ratings. Items in the Green sections will be kept (revised if necessary from feedback) and items in the Red category will be discarded or revised. Often, items in each of these three categories needed further information to understand why they were relevant or not.
+
+Feedback from the experts provided insight into why specific items were rated one way or the other. Items were reviewed using the expert feedback to determine if there were issues (e.g. comprehension difficulty, construct relevance, theoretical implications) and either rewritten, sectioned for further review, or removed. Quotes from the experts have been added into this document to highlight why specific decisions were made. Items theoretically relevant to the hierarchical construct were kept or rewritten to be evaluated in the second round again, this is for theoretical reasons which need to be empirically tested (either the item is a formative item or it is the only item measuring an aspect of the domain in question). 
+
+The experts also provided more general feedback regarding each of the hierarchical constructs. This allowed for gaps in the sampled universe of items to be brought up and examined. Experts ideas regarding the item pool for each construct are labed as "[hierarchical construct] Overall comments". Quotes from the experts are provided at the beginning of each section, with lower level constructs organised following. This feedback has been used to rewrite the items and add items into the pool for the second round of expert evaluations.
+
+All decisions made from the aforementioned processes are found in the sections labeled *Revised items*. These sections will provide an extrapolated concise explanation for decisions made and suggestions for fixes. In general, the Red items will be removed unless otherwise noted for the second expert task. 
+
+# Focus - Motivation Overall comments:
+
+> "These were relatively easy. Something about getting into Zone or maintaining focus could have been there."
+
+> "I am not sure the items relating to advice from others are very helpful."
+
+> "The core components of self-actualisation seems absent. Music as a aid to fulfilling ones 'true' potential and as a task aid that improves the quality of the task being done. There may be a missing social aspect of this in group work. (e.g. we work better together, music keeps us on task; music motivates us; etc.)"
+
+> "this was the most scattered one yet... seemed like there were a lot of overlaps with other episodes (mostly EDR, PEP probably...)"
+
+> "The item pool was very clear throughout. Some items overlapped slightly with EDR constructs, but most unambiguously capture the FM episode"
+
+> "Perhaps the main consistent pattern in my responses concerns various items alluding to arousal and mood regulation, which could be applicable for EDR episodes, as opposed to FM episodes (this feels more clear with the mood regulation items). I am not sure if I saw the 'musical meaning' or 'situational context' descriptive schemes come through so clearly in the items? Could there be something about blocking our external stimulation/distraction to afford focus (i.e., context), or even something about a 'lack of meaning' in the music chosen for focus (so as not to introduce more disruption)? These are only immediate thoughts that come to mind!"
+
+> "I don't remember seeing items related to achieving "group coordination" for a task. I also think you could include items about using music to perform a task in time with the music, i.e. with a steady rhythm, even when the person is alone. E.g. jogging, cycling, working out in the gym, etc."
+
+> "The four types of situational cues (cognitive, affective, motivational, social / transactional) don't all seem to fit well in the Focus-Motivation schema. Many of the items, especially the affective F-M questions, seem to fit more neatly in Enjoyment-Distraction-Relaxation."
+
+> "Currently, the items mostly use "focus" and "motivate" - I think there could be a mix with the use of some other synonyms such as "concentrate" too."
+
+
+## Show items texts associated with low consensus
+
+```{r}
+#| echo: false
+#| warning: false
+#| id: load-data
+library(tidyverse) 
+library(stringr)
+library(psychometric)
+library(ggplot2)
+library(CVI)
+
+load(file = 'data/All_Item_data.Rdata')
+load(file = 'data/Constructs.Rdata')
+#items <- readLines('../../item_analysis/data/items.txt')
+#item_concept_id <- read.csv('../../item_analysis/data/item_concept_id.txt',header=TRUE)
+tmp <- read.csv('data/item_concept_id_items_R1.csv',header=TRUE)
+
+# EF19
+item_concept_id <- as.array(tmp[,1])
+items <- as.array(tmp[,2])
+#item_name_id <- read.csv('../../item_analysis/data/item_name_id.txt',header=TRUE)
+#item_name_id <- as.array(item_name_id$Instrument_ID)
+DF$item <- items[match(DF$name,item_concept_id)]
+```
+
+
+
+```{r}
+#| echo: false
+i <- 1
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### EM2:
+> "Also relevant to LMA - emotional"
+
+> "More appropriate for EDR"
+
+> "Relevant, can see this similarly in terms of enhancing positive mood too (EDR episode)"
+
+> "I'm not sure if "pumped me up" will be understood in the same manner universally - could also consider "energised" instead"
+
+##### EM3:
+> "Again, makes sense I think but some crossover with EDR?"
+
+> "More appropriate for EDR"
+
+> "I like this item, although it can also be considered as "I felt energised by the music""
+
+##### EM17:
+> "only relevant when get ready for something"
+
+> "Why specifically "get ready"? How about other things like "complete my task"?"
+
+*Revised items*: 
+
+EM2 - Consider construct
+
+EM3 "I felt energised by the music"
+
+EM17 - Consider rewriting
+
+
+
+
+```{r}
+#| echo: false
+i<-2
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+  
+```
+
+#### Expert quotes regarding specific items:
+
+##### MF5:
+> "Feels fairly generic, in some was could be applicable in other episodes (e.g. EDR)?"
+
+> ""Present moment" could be defined in many ways, depending on the person (the taks, the music, the experience)"
+
+##### MF11:
+
+> "as a goal to be achieved it could be confused with EDR: Enjoyment motivations too. Or perhaps EDR: enjoyment episodes are subsumed by the FM episodes, but prevalent enough to warrant a separate category"
+
+> "This item seems to be measuring the intent of the person, instead of how much the person actually used music for focus or motivation." 
+
+##### MF20:
+
+> "Hard to apply" 
+
+##### MF8:
+
+> "Could this simply say "I was motivated by the music"?" 
+
+> "Could be a tricky one to answer?"
+
+> "It feels a bit strange to me that one feels productive as a result of being motivated by the music. It likely is that one feels productive by accomplishing the task at hand as a result of the music motivating them. If so, consider: "The music made me more motivated and productive""
+
+*Revised items*: 
+
+MF5 - Consider construct, clarity
+
+MF11 - Consider construct, clarity
+
+MF8 - Rewrite and separate into two "The music made me more motivated", "The music made me more productive"
+
+
+
+# Connection - Belonging Overall Comments:
+
+> "Consider looking at Bannister et al.'s work on the pseudo-social experience and Schramm and Haartman's work on para-social interactions"
+
+> "The social aspect seems well represented in cognitive, affective, motivational, and social terms. CB does appear to be the only episode so far that balances positive and negative experiences from musical social interactions more evenly. The other episodes appear more positively interpreted minus a few items."
+
+> "maybe there were some overlaps with the Musical Meaning (esp regarding the culture)"
+
+> "This pool seemed very strong and most prompts captured the content depictions well."
+
+> "Perhaps there could be more items on the functions/aims of engaging with music in CB episodes? I got the clearest sense of this in relation to loneliness/company, but could it be captured also in relation to socialising more generally, or feeling connected to others or to their culture? Could reward & exposure be incorporated more? E.g., the pleasure/liking as derived from the social connection/belonging experienced? (i.e., the affective / valence consequences of such episodes)."
+
+> "I think the items in here are generally relevant, however, contain quite a bit of conceptual overlap. I think quite a few of these ideas (e.g., feeling less lonely, feeling connected with others) could be consolidated into a smaller subset. I suspect these items would highly correlate with one another, to a degree that they are practically measuring the same idea. Minimising this a bit more where possible would help whittle down the item pool."
+
+> "I think it could be useful to include items related to feelings of connecting or identifying with the musicians who perform it. This is a less abstract way of feeling socially connected to the music, but I think it may be a rather common experience. E.g. "I felt identified with the feelings that the musicians were expressing with the music" "Engaging with the music made me feel like the musician(s) who performed it were similar to me""
+
+> "Having the music as the agent to which the listener felt connected is an interesting aspect. Perhaps that could be addressed with more questions."
+
+> "I think that group cohesion in the episode of CB is predominantly referring to cohesiveness with peers. Could consider to expand group cohesion to other types of groups, such as family."
+
+
+```{r}
+#| echo: false
+i <- 3
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### GC1: 
+
+> "Minor comment on wording: "... more connected to those around me..." instead of "people""
+
+##### GC3:
+
+> "The phrasing seems a little odd here. Perhaps "cultural identity"?"
+
+> "Some overlap with MM - source"
+
+> "I see the logic, I wonder how easy it is to answer clearly"
+
+> ""reflected" instead of "demonstrated""
+
+##### GC4:
+
+> "a bit vague"
+
+> "this can be social too, but the connection could be with anything"
+
+> "I think this would be more relevant if it explicitly states the connection is with others, rather than with the music itself. A later prompt says "connection with others", so this one may not be necessary"
+
+> "Seems appropriate, broad but intuitive; though perhaps connection is not always 'social'"
+
+> "I would phrase it as "I felt part of something bigger than myself while listening to the music""
+
+> "a sense of connection "with others""
+
+##### GC6: 
+
+> "I like what it attempts, but the wording is a little clunky (similar music tastes to whom?)"
+
+> "Relevant but repetitive with some other items."
+
+> "This seems less about the music and more about personal preferences."
+
+> ""musical" tastes?"
+
+##### GC12:
+
+> "Music as the cause of generating a new goal"
+
+> "Perhaps this could be rephrased as "I thought about sharing this music with my peers" to emphasize the group cohesion aspect"
+
+> "Peers' feels a little unusual? Otherwise seems clear"
+
+##### GC13:
+
+> "maybe also Musical Meaning?"
+
+> "Seems more relevant to MM - self or source"
+
+> "A nice item, but wonder how straightforward it will be for respondents?"
+
+##### GC18:
+
+> "I think this one is clearer than "The music was something my peers would like""
+
+> "could consider to standardize the usage of "peers" (in this case, replace "friends" with "peers")"
+
+##### GC19:
+
+> "Clarity might be improved a little in the wording? Not quite sure how, though it is quite clear already"
+
+> "to "my peers" instead of "others"?"
+
+##### GC20:
+
+> "Could be rephrased as "The music brought people together""
+
+> "Bit less sure of this one, as the focus does not appear to be on the respondent?"
+
+*Revised items*: 
+
+GC1: "The music made me feel more connected with those around me"
+
+GC3: "The music connected me to my cultural identity" 
+
+GC4: "I felt as a part of a group while listening to the music" - maybe
+
+GC6: "I felt connected with people who also listen to this music"
+
+GC12: "I thought of sharing this music with my peers"
+
+GC13: Remove or switch to MM - source
+
+GC18: "The music reminded me of my peers"
+
+GC19: "I conformed to my peers musical preferences"
+
+GC20: "The music brought my people together"
+
+```{r}
+#| echo: false
+i <- 4
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### SL2:
+
+> "I follow the logic of including this item, however, am personally unsure whether this reflects the intended scheme. Does playing along with others really mean we can assume a sense of belonging or connection? I'd personally say it is possible to sing along to something without feeling a strong sense of connection, but would also suspect that this alludes somewhat more generally towards musicking behaviours and away from socialisation. Whilst I see the connection between the two, in my view this is not defined or framed in the context of the connection/belonging scheme clearly enough."
+
+##### SL7:
+
+> "might sound a bit off to lay people "social experience", maybe experience with others?"
+
+> "Seems quite good, bit broader and possibly tricky to answer (perhaps less intuitive for listeners?)"
+
+> "Too ambiguous."
+
+##### SL10:
+
+> "Again, a more personal coping suggests the PEP episode, with a social twist"
+
+> "This might fit better in AIA"
+
+##### SL17:
+
+> "Also relevant to LMA - emotional"
+
+> "This again feels repetitive (i.e., regarding items discussing feeling less lonely etc). I would think these could be consolidated to reduce conceptual overlap. "
+
+##### SL18:
+
+> "I like this, seems to tap into 'musical meaning' descriptive scheme, though the wording could be a bit complex for respondents"
+
+> "I would phrase it in plural: "a special connetion to the people I shared...""
+
+##### SL22:
+
+> "This is an interesting item, a bit different from music reducing loneliness (perhaps more about aims/goals of music engagement?)"
+
+> "Again relevant for sure, but a little repetitive."
+
+> "This sentence is a little difficult to read at first glance, consider "The music helped me feel less lonely" (which I think was a previous item)"
+
+*Revised items*: 
+
+SL2: consider removing
+
+SL7: "The music made me feel like I belonged" or "The music prompted a shared experience"
+
+SL10: consider construct change
+
+SL17: combine with SL22
+
+SL18: revise 
+
+SL22: combine with SL17 "The music helped me feel less lonely"
+
+
+# Enjoyment - Distraction - Relaxation Overall Comments:
+
+> "obtaining and enhancing a positive mood seem well represented, but maintaining a pre-existing positive mood seems less represented."
+
+> "The pool of items seemed to focus more on relaxation than on distraction. Throughout I was unsure about whether overlap with other episodes is an issue, so I labelled those throughout."
+
+> "Regarding the distraction/diversion dimension of the episode, perhaps the items are mostly quite broad and general, and do not themselves emphasise a positive mood element; does that need to be the case? Depends perhaps on how the measurement is envisaged, but just something I noticed. I wonder of the 'musical meaning' descriptive scheme could come through a little more in a few items, such as how meaning attributed to music may help with positive mood regulation and escapism etc.?"
+
+> "I think that the enjoyment aspects of music listening are always a tricky one. Nobody really listens to music because they do not enjoy it (e.g., as a form of self-torture), and so, in my experience at least, I have always found little variance in such factors. It's not that enjoyment is not relevant, it absolutely is, it's more of a general reservation that the lack of variance in intended enjoyment may not be a useful predictor or distinguishing factor in listening experiences. It may be a case of providing more specific examples in the items to pull out some specific aspect of enjoyment you may be interested in, or perhaps considering whether it is too broad so may be useful to leave to one side. With this said, I am basing this solely on my own experiences, so by all means consider what others have to say about this!"
+
+> "I think you could add more items about using the music to dance. Adding negative items could be informative too. E.g.: "The music did not help me stop thinking about my worries""
+
+> "I thought this one was very well defined. Good job!"
+
+> "I think the items for EDR are quite comprehensive, but just a note that there were a handful of items that seem to measure how distractable (in general) a person is with music. In that regard, I am not sure the direct relevance of these items to EDR as how this episode is currently defined. With that said, the extent to which an individual could be distracted / affected / immersed with a musical interaction (which relates to their absorption trait e.g. AIMS by Russo and colleagues) is definitely a concept related to EDR. "
+
+
+```{r}
+#| echo: false
+i <- 5
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### RX3: 
+
+> "but it didn't? I'd suggest a stronger statement about knowledge of musical functions 'I knew the music would...'"
+
+> "Unsure if expectations are important to the EDR episode. This seems more in anticipation of the episode than being part of the episode itself"
+
+##### RX6:
+
+> "A bit less sure of this, and what it aims to capture?"
+
+##### RX11:
+
+> "The wording of this one is slighlty ambiguous. Should this say "I rested to the music"?"
+
+> "Hmm, the wording is very interesting! Maybe this is relevant, but just have a little more uncertainty with it"
+
+> ""I felt rested when I listened to the music" might make more sense"
+
+> "This sentence appears strange at face value, consider "The music allowed me to feel rested"?"
+
+##### RX12: 
+
+> "Clearly relevant to relaxation construct. Some overlap with LMA - emotional/reduced"
+
+> "I personally think turned "to" the music would read better here."
+
+##### RX15:
+
+> "possible PEP overlap, but could be relevant to multiple episodes depending on what is being recuperated from (social, emotional, physical, etc.)"
+
+> "Although consider "recharge" instead of "recuperate" (as recuperate is usually associated with physical conditions)"
+
+##### RX21:
+
+> "Also relevant to LMA - associative and MM - self"
+
+##### RX22:
+
+> "sounds a bit weird... when would it be inappropriate?"
+
+> "Good, capturing situational factors"
+
+> "This sentence reads fine in itself, but I'm not sure how the social appraisal dimension fits in with the EDR construct"
+
+##### RX24:
+
+> "This seems quite relevant. I am not sure if EDR includes metacognition about feelings in response to the music, which can also overlap with LMA constructs"
+
+##### RX25:
+
+> "This is more specifically an EDR episode, but certainly has some overlap with AIA: aesthetics too. Something like AIA as an umbrella term that would include this EDR example."
+
+> "Also relevant to FM - energy control"
+
+*Revised items*: 
+
+RX3: "I knew the music would make me feel at ease"
+
+RX6: conceptual clarity, rewrite
+
+RX11: possible rewrite, I like how it is now as it implies use of the music for a specific purpose
+
+RX12: "I was using the music to relax"
+
+RX15: "Listening to the music helped me recharge" (cross-cultural?)
+
+RX21: remove or rewrite
+
+RX22: rewrite?
+
+RX24: consider construct
+
+RX25: rewrite?
+
+```{r}
+#| echo: false
+i <- 6
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### EJ1:
+
+> "Could also say "The music delighted me""
+
+> "I would phrase it as "in the way the music sounded""
+
+##### EJ5:
+
+> "Seems good, but can see how it touches on aspects of AIA episodes too? Not sure if 'immersion' resonates with EDR so much, but possibly!"
+
+> "This sounds to me more like an attention mode, rather than as a functional context"
+
+> "Could also work for AIA"
+
+##### EJ7:
+
+> "While, clearly relevant to EDR episodes, it feels like it would underpin many musical episodes even if it was a secondary goal"
+
+> "I would phrase it, more simply, as: "I was having a good time with the music""
+
+> "I think the phrase "having a good time" is more commonly associated with social situations or interactions with people, consider: "I felt like I was enjoying myself because of the music""
+
+##### EJ8:
+
+> "This feels like it would describe the affective reflection to many musical episodes. Is it specific to EDR?"
+
+> "ambiguous - could also be enjoyment of "negative" emotions like sadness etc"
+
+> "I see the relevance, it is a bit generic perhaps and may apply in other episodes? Perhaps not too much of an issue, it centrally positions enjoyment"
+
+##### EJ10: 
+
+> "Is this specific to EDR episodes? If so, it would appear to be related to something in the music. Perhaps being more specific to musical qualities would make it more specifically EDR related"
+
+> "This item is relevant but, in my experience a little too general. If the intention here is to find an underlying factor structure to these items, then what you may find is that items surrounding broad enjoyment do not clearly relate to one particular dimension. There is comparatively little variance in such items, and so it may not be a particularly useful marker to delineate between underlying factors. It may be worth considering whether this needs to be more specific, therefore, or whether it is worth dropping because of this."
+
+> "This seems to be a re-word of the item "I felt like I was having a good time with the music""
+
+##### EJ12: 
+
+> "maybe I was listening to the music AND singing or humming along?"
+
+> "Seems more relevant to LMA - bodily"
+
+##### EJ13:
+
+> "As before, I suspect this item is a little too broad. It depends on your intentions, of course, but I would not say these enjoyment items need to be more specific."
+
+##### EJ22: 
+
+> "This seems like the emergence of an AIA: curiosity episode during another musical episode. The EDR description appears to rely more typically on existing knowledge of the music and would be familiar to the listener."
+
+> "Also relevant to LMA - structural or possibly ER scheme"
+
+> "Not sure about this one, or its immediate relevance? Broad, not specific to EDR, and does conjure up a more aesthetic perspective?"
+
+> "This is aesthetic (AIA)"
+
+*Revised items*: 
+
+EJ1: rewrite?
+
+EJ5: consider construct
+
+EJ7: clarify original, additional item "I felt like I was enjoying myself because of the music"
+
+EJ8: rewrite
+
+EJ10: new items to specify construct, hierarchical structure item
+
+EJ12: move to LMA - Bodily
+
+EJ13: rewrite
+
+EJ22: move to AIA
+
+```{r}
+#| echo: false
+i <- 7
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### DT1:
+
+> "the item here sounds happenstance, not a personally driven goal to distract one's self with music."
+
+> "Can see the relevance, though does not necessarily emphasise positive mood"
+
+> "I wonder if this item could be a little more precise. Distracted from what? Listeners tend to find musical distractions both a good and bad thing (e.g., being distracted from negative emotions or thoughts is good, whilst being distracted from work or a conversation is less good). I therefore think this needs some greater specificity."
+
+> ""I was distracted from my feelings by the music" might get at the point more"
+
+> "I think this item also reads fine, but it does not tell us why the individual is distracted by the music - which is essential to the construct Distraction."
+
+##### DT2:
+
+> "maybe plural? daily routines"
+
+> "Captures distraction, also relevant to PEP - reflection/coping"
+
+> "Again I can see the relevance, but does it need to emphasise the positive mood element of this escapism?"
+
+##### DT3:
+
+> "with some overlap to FM episodes, but I would suggest more related to EDR."
+
+> "Clear, similar comment here re. positive mood outlined in the EDR characterisation (though it may not be your aim!)"
+
+##### DT5:
+
+> "Was this the goal of the individual, or the output of a chance interaction with music. agency is unclear"
+
+> "I would phrase it as "The music made me forget my worries""
+
+> "consider "... what I was thinking about or doing""
+
+##### DT8: 
+
+> "Quite nice wording, somewhat neutral but I suspect respondents may infer some positive affective regulation here"
+
+> "Could also work for Focus-Motivation"
+
+##### DT14: 
+
+> "I think it could work, though it makes me think of absorption or detachment in some way (possible crossover to the AIA episode and self-transcendence maybe?)"
+
+##### DT18: 
+
+> "This seems heavily PEP, not EDR"
+
+> "you can delete "to navigate my emotions"?"
+
+> "There is some overlap with LMA - emotional. This might be reworded along the lines of "The music distracted me from difficult emotions""
+
+> "Not fully sure, seems to resonate with the PEP episode and emotional support."
+
+> "I think it may be too metaphorical, not everyone would understand what "navigating one's emotions" means. I would phrase it as "The music helped me work out what I was feeling and find solace""
+
+> "Also would work for PEP"
+
+##### DT19: 
+
+> "Seems interesting as an item, and captures some descriptive schemes"
+
+> "Just wondering why specifically "social interactions"? I presume social interactions in this context function as a stressor, so it could be made be generic: "... to distraction me from a stressful situation""
+
+##### DT21:
+
+> "This seems relevant to CB episode - group cohesion"
+
+> "Good, I see the social / transactional dimension clearly"
+
+> "More CB"
+
+
+*Revised items*: 
+
+DT1: bolster construct with multiple versions
+
+DT2: "The music allowed me to escape from my daily routines"
+
+DT3: keep
+
+DT5: add "The music made me forget my worries", "The music made me forget what I was thinking about", The music made me forget what I was doing"
+
+DT8: create new version away from positive affect
+
+DT10 & DT11 were duplicated in the survey. Should include the actual DT11, "Listening to music allowed for breathing space in the middle of my day"
+
+DT14: rewrite, "The music momentarily disconnected me from my surroundings"
+
+DT18: rewrite and consider construct move
+
+DT19: "The music distracted me from a stressful situation"
+
+DT21: consider construct
+
+
+```{r}
+#| echo: false
+i <- 8
+```
+
+# Aesthetic - Interest - Awe Overall Comments: 
+
+> "I think a lot of people may struggle to engage with the abstract nature of some of these concepts such as soul, aesthetics, or spirituality. I think the emotional questions were not sufficiently nuanced to adequately capture that experience. I also struggle with questions relating to expectation or motivation rather than the lived experience of a situation."
+
+> "No, but I note several elements that blend with other functions too."
+
+> "I am not sure that 'aesthetics' is so useful as a broad term in some of the items, some perhaps some more specific items would help capture the various aesthetic dimensions. You may want a few items that capture a bit more closely the experience of 'awe', as this did not seem to emerge clearly."
+
+> "again a lot of overlaps with the other episodes and elements of DEEM"
+
+> "I think the aesthetics construct could be expanded a little, but otherwise I thought this was very cohesive"
+
+> "I felt there was some overlap between items that could be reduced, and that some seemed more indicative of other schemes (notably PEP and CB) than to AIA."
+
+> "I think there are some dimensions of the experience of "musical awe" that may be missing here, like the feeling of being "dwarfed" by the huge size of the musical sounds. I recommend looking into Landon S.L. Peck's research about this. I would also add items more explicitly related to the experience of "trance" which can be achieved outside of religious contexts."
+
+> "I mentioned many of these in my comments, but combining the cognitive and affective components seems a bit disjointed. To me, interest is cognitive, awe is affective, and aesthetics is somewhere in between (but closer to affective). I appreciate wanting to look at each of these episodes from cognitive, affective, motivational, and social / transactional perspectives. However, it is hard to find the difference between a social / transactional cue for Aesthetics-Interest-Awe and an item in the Connection-Belonging domain. You'd have to test how participants interpret items that could fit in more than one schema."
+
+> "Nil"
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### MS1:
+
+> "I personally do not resonate with these metaphorical experiences. I find it hard to engage with them in a meaningful way."
+
+> "Seems fairly clear, as an transcendental out-of-body experience. It is quite specific as an item, so may need some others to capture this dimension?"
+
+> "too abstract"
+
+> "I think this item could be rephrased slightly, like "I felt like the music lifted me into the air", or "lifted me out of my body""
+
+> "I would phrase it as "I felt like I was...""
+
+##### MS3: 
+
+> "I kind of dislike the word soul (because I find it a bit too poetic and religious myself)"
+
+> "Not sure I have one"
+
+> "It aligns with the AIA summary. Do we need 'my soul'? Could it just be 'me'?"
+
+##### MS4: 
+
+> "Relevant item; a bit verbose. Perhaps removing 'temporarily' would go a long way to making this a bit easier to parse."
+
+> "The second half of the sentence sounds quite academic to me. It may be hard to understand for lay people."
+
+##### MS7: 
+
+> "a bit vague but fits"
+
+> "Wanted to vs. actual experience is hard to comprehend"
+
+> "I think this is relevant, though I can see the relevance perhaps for the PEP Episode too? There is not too much in the AIA summary relating to 'feeling' something, or 'meaning' (which this item to alludes to, at least for me!)."
+
+> "make it more concrete? could also be PEP"
+
+> "Some overlap with PEP episode"
+
+> "Too ambiguous"
+
+> "or remove "I wanted": "The music made me feel deeply about something""
+
+##### MS9:
+
+> "I dislike the word soul but accept this nevertheless"
+
+> "Again, my soul?"
+
+> "Similarly, perhaps we do not need 'my soul' (although it does feel a bit better here!)."
+
+> "Relevant but seems a little repetitive with a prior item. One might suffice?"
+
+##### MS12:
+
+> "interesting one"
+
+> "Seems fine! Could we be more specific beyond 'spiritual'? Perhaps it is not needed."
+
+> "why "prepared"? maybe "provided" is better?"
+
+> ""prepared me" isn't the right phrase. Maybe "allowed me to feel" or "encouraged""
+
+##### MS15:
+
+> "There are more nuanced ways of measuring this of course"
+
+> "Seems relevant, over the course of this AIA task I am starting to see a little more how the emotional dimension feeds into the Episode."
+
+> "Some semantic overlap with PEP - expressing feelings"
+
+> "This seems to be more PEP than AIA."
+
+> "Too ambiguous."
+
+> "perhaps to make this more directly relevant to the episode AIA, consider: I was "deeply touched and in awe of" the music"
+
+*Revised items*: 
+
+MS1: rewrite, "I felt like the music was lifting me into the air"
+
+MS3: rewrite, "The music moved me" (can be misinterpreted into physical ideas)
+
+MS4: rewrite, "I was completely immersed in the music, as it altered my state of being"
+
+MS7: consider construct or rewrite "The music caused me to transcended beyond myself"
+
+MS9: remove either MS3 or MS9
+
+MS11: rewrite, "I experienced the music through an entirely different worldview" 
+
+MS12: keep but add, "The music provided me with a spiritual experience"
+
+MS15: consider construct (PEP)
+
+MS17: consider construct (CB)
+
+MS20: "I wanted the music to take me somewhere spiritually"
+
+```{r}
+#| echo: false
+i <- 9
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### CU1:
+
+> "This certainly appears to have relevance to aspects of AIA. I would suggest in components like spirituality, but it could be understood as feeling more connected to the world too. This would be somewhat against the detached nature of the description of spirituality. It could perhaps be seen more like the outcome of PEP episode?"
+
+> "PEP?"
+
+> "Some overlap with PEP - reflection, or MM - source"
+
+> "This seems more cognitive than aesthetic"
+
+##### CU2: 
+
+> "reward"
+
+> "Some overlap with exposure & reward, not sure if intentional. Could say "The music sparked my curiosity""
+
+##### CU3: 
+
+> "Certainly relevant to the AIA episode, but could have some overlap with PEP as expressing or gaining insight into feelings. This seems relevant to the interpretation of 'issues' as personal or more related to external factors (the degree of agency over the issue)."
+
+> "I am not sure this is clearly related to the AIA summary? Seems to stick out a bit."
+
+> "PEP / Musical Meaning"
+
+> "Relation to important issues (if non-spiritual) doesn't seem as relevant to this episode from my reading of the definitions"
+
+##### CU4:
+
+> "in the case intellectual can be accepted as a variety of an aesthetic experience"
+
+> "Seems fine, and capturing the interest/curiosity aspects of the Episode."
+
+> "cannot grasp what an "intellectual experience" is"
+
+> "Also relevant to LMA - reduced/causal"
+
+> "This does indeed go with "Interest" in AIA, but I think I see a difference between Aesthetic and Awe vs Interest. They seem like two different constructs -- Aesthetic / Awe may not require the same type of intellectualization as Interest. Interest seems more rational."
+
+*Revised items*: 
+
+CU1: consider construct (PEP or MM)
+
+CU2: rewrite to remove reward
+
+CU3: consider construct (PEP)
+
+CU4: rewrite?
+
+CU12: rewrite for clarity "My curiosity helped me understand the musical experience"
+
+CU14: consider construct (CB)
+
+```{r}
+#| echo: false
+i <- 10
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### AE1:
+
+> "I find it hard to engage with 'sense of aesthetics' as this is not an everyday term"
+
+> "It feels as though 'sense of aesthetics' could be open to many broad interpretations. Also, music being 'appropriate' for someone's 'aesthetics' could be tricky to respond to?"
+
+> "wording is a bit confusing"
+
+> "maybe "satisfied my sense of aesthetics"?"
+
+> "Could change to "... *to my sense of aesthetics""
+
+> "Too ambiguous."
+
+##### AE4:
+
+> "Less sure of this one. Is it tapping into that idea of enjoying the 'music itself'? Though that is a bit tricky too. Might be a clearer way of wording this item."
+
+> "Too ambiguous. I would phrase it as: "I enjoyed the music because of its value as a piece of art""
+
+##### AE5:
+
+> "again, there are better ways of capturing this"
+
+> "The item wording is fine, but I am not so convinced how closely this aligns with the AIA Episode (strong emotions may be equally relevant in some other Episodes, e.g, CB or PEP)."
+
+> "Relevant also to FM episode. Perhaps this could be rephrased to focus on expressing one's own emotions rather than experiencing new ones"
+
+> "These reads as though it should relate to the PEP scheme more than AIA."
+
+> "Could also be useful for Enjoyment-Distraction-Relaxation"
+
+> "It would be better if there was another phrase to refine "strong emotional experience" so it could reflect the meaning of "awe" more directly"
+
+##### AE7:
+
+> "Again, I think this item looks okay, but unsure whether it resonates closely with the AIA Episode as summarised in the guidance document. Of course I see awe is mentioned, but if that is what these items are getting at, a more specific wording could be useful."
+
+> "Relevant also to FM - Energy control"
+
+> "This seems more like a PEP than AIA item."
+
+##### AE9: 
+
+> "Fairly clear item, but it does not seem clearly aesthetic/interest/awe-related? Perhaps more for the EDR Episode?"
+
+> "more EDR or Focus"
+
+> "Also relevant to FM - focus"
+
+> "it would be better to introduce the sentence with The"
+
+> "More appropriate for Enjoyment-Distraction-Relaxation or Focus-Motivation"
+
+##### AE10:
+
+> "goal-congruence, could be confused with other functions. But again, the 'aesthetically' suggests AIA is one of those functions"
+
+> "'aesthetically right' sounds rare"
+
+> "I can see that this fits the Episode, though I wonder - how do we distinguish music being 'aesthetically right' for a situation, compared to 'emotionally right' or something similar? E.g., If we listen to sad music to match our mood and induce feelings of consolation, is that an 'aesthetic' fit?"
+
+> "could say "aesthetically appropriate to the situation""
+
+> ""appropriate" or "suitable" instead of "right"?"
+
+##### AE14:
+
+> "Seems fine, beauty and aesthetics feels intuitive. But I wonder if other dimensions of 'aesthetics' could be explored in the rating items. Rating something at the level of 'aesthetics' only could be quite difficult."
+
+> "Could say "enhanced" instead of "fulfilled""
+
+> ""enhanced" or "made complete" instead of "fulfilled"?"
+
+*Revised items*:
+
+AE1: rewrite for clarity "The music captured my..."
+
+AE4: keep original, add? "I respected the music for its value as a piece of art"
+
+AE5: rewriting item with more nuance "strong emotional experience" is too wide
+
+AE7: rewriting out "strong emotions" 
+
+AE9: consider construct (EDR)
+
+AE10: rewrite, "The music decorated my situation appropriately", "The music felt cultivated for my experience"
+
+AE14: "The experience was enhanced by the beauty of the music"
+
+AE15: consider changing "gave"
+
+```{r}
+#| echo: false
+i <- 11
+```
+
+# Personal - Emotional - Processing Overall Comments:
+
+> "What is a soul? I just can't engage with it as a concept and I fear it would alienate people."
+
+> "autobiographical memories and other associative values attached to music didn't appear as commonly as I anticipated. For example, music as reflective of old memories or feelings that have successfully been processed / reappraised, but there is still something comforting in the nostalgia of this action."
+
+> "maybe some overlap with the other episodes (EDR, CB...)"
+
+> "I noticed the prompts didn't include the word "reminded", such as "the music reminded me of a place I've been". This might have some semantic overlap with the association construct of LMA or self construct of MM, but seems relevant to the Reflection/coping construct here"
+
+> "I was not sure if I saw the idea of 'recalling associations' come through so clearly across the items, and I am not sure if stimulating identity is distinct from self-expression across the items? But that may just be my 'gut feeling' read of the items. I do feel that some of the emotional support items have a flavour of social connection to them (possibly some crossovers with PEP and CB episodes), depending on how people may intuitively respond. Also apologies, as I did behaved as a typical participant and did not really use the full range of the relevance scale, where perhaps I should have! I will try more with the next episodes."
+
+> "These items were very interesting - I think my only recommendation would be to reduce some of the conceptual overlap amongst some of these as they could feel a little repetitive in places!"
+
+> "There is a big construct overlap between Personal Emotion Processing and Enjoyment Distraction Relaxation. This is fine, in emotion theory, but when creating a scale, in my opinion, an item should clearly belong to one construct. It'll make the scoring easier."
+
+> "I think the aspect of emotional awareness and clarity is under-represented. Currently, there seems to be more items regarding expressing emotions. In addition, there could be some items pertaining to lyrics of the song (since they can play an important role in personal identification). Could consider: "The music helped me be more aware of my feelings" "The music helped me gain clarity to my inner-self" "I frequently identify with the lyrics of the song" "The lyrics of the song reflected my inner feelings and thoughts""
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### CC5: 
+
+> "doesn't seem to capture the processing of emotions. Perhaps this is closer to EDR: distraction"
+
+> "EDR?"
+
+> "This seems more relevant to EDR - distraction"
+
+> "To me, this is more of an EDR episode item?"
+
+> "Again, this could be equally useful for Personal-Emotion-Processing and Enjoyment-Distraction-Relaxation"
+
+##### CC18:
+
+> "What is a soul?! I don't know how to understand 'soul'!! Maybe that is just me?"
+
+> "soul blends with the more spiritual elements of AIA"
+
+> "therapy FOR my soul"
+
+> "Should this say "to my soul"? Also relevant to EDR- relaxation"
+
+> "The wording feels a little off with this one? Less sure of the relevance"
+
+> "I would phrase it as "The music was like therapy for me""
+
+> ""for" my soul?"
+
+##### CC20:
+
+> "Could also say "helped me reflect on how I was feeling""
+
+> ""helped" me reflect?"
+
+##### CC25:
+
+> "'through' is maybe not the right word?"
+
+> "wording a bit complex"
+
+> "don't like the expression "control my feelings", maybe "navigating"?"
+
+> "Also relevant to LMA - emotional"
+
+> "I find this one a bit difficult to understand."
+
+> ""Controlled feelings" sounds like Distraction in EDR"
+
+> ""I controlled my feelings" - can we really control our feelings? Could consider: "I processed my feelings through music""
+
+*Revised items*:
+
+CC5: consider construct (EDR)
+
+CC18: rewrite, "The music was like therapy for me"
+
+CC20: clarity, "The music helped me reflect on how I was feeling"
+
+CC17 & CC25: quite similar but different item meaning (specification of goal)
+
+CC25: can't neglect agency, clarity, "I navigated my feelings by controlling the music"?
+
+```{r}
+#| echo: false
+i <- 12
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### EF2:
+
+> "emotionally, socially, cognitively, or all of the above? "
+
+> "Reflects the identity aspect of PEP, and also self construct of MM"
+
+> "Fairly broad item, but I think this aligns with the episode"
+
+> "I would make more specific: "Listening to music allows me to express my feelings""
+
+> ""allowed" me?"
+
+##### EF4:
+
+> "could be confused with a purely arousal focused modulation (FM episodes), instead of more nuanced emotions implied by PEP"
+
+> "The wording is perhaps a bit odd, but relevant item."
+
+> "Could also be used for Enjoyment-Distraction-Relaxation"
+
+> "The music alleviated "my" inner tension (remove "I had")"
+
+##### EF14:
+
+> "This seems true of all episodes, if each episode has an affective component"
+
+> "the item is a bit cumbersome"
+
+> "This seems relevant to MM - Source and E/R schemes as well."
+
+> "Very relevant, but some overlap with other items perhaps?"
+
+> "This is focused on the music itself, which seems more Aesthetic-Interest-Awe. For Personal-Emotion-Processing, the focus should be on the listener."
+
+> ""meaning" it conveyed to me?"
+
+##### EF15:
+
+> "This appears to capture a new goal generated by listening to music, presumably for another purpose first. Feeling more comfortable expressing emotions after processing them seems to me like a possible outcome of a PEP episode over others, but I wouldn't say that it is the initial goal of a PEP episode as described in the documentation"
+
+> "Quite interesting item, wonder what this might reflect (e.g., music giving someone motivation to express emotions 'after' listening)."
+
+##### EF19:
+
+> "more about the Social episode?"
+
+> "Also relevant to CB - socialisation "
+
+> "I see some of the relevance here, but perhaps it is a question of crossover with the CB episode (though this brings to mind the 'associations' of the PEP episode as well)."
+
+##### EF24:
+
+> "Social episode?"
+
+> "Also relevant to CB - socialisation"
+
+> "Even with the 'others' in this item, still feels like quite a clean self-identity item."
+
+> "Better suited to Connection-Belonging"
+
+*Revised items*:
+
+EF2: rewrite with 'allowed', separate/ specify focus
+
+EF4: consider construct (EDR)
+
+EF9: consider construct (EDR)
+
+EF14: rewrite?
+
+EF15: item needs insight
+
+EF19: consider construct (CB), "The music communicated my feelings toward someone"
+
+EF24: consider construct (CB)
+
+
+```{r}
+#| echo: false
+i <- 13
+```
+
+# Listening Modes & Agency Overall Comments:
+
+> "So far, I have not seen many items that relate specifically to goal-attainment/orientation. This is perhaps more implied by some of these items, but I do think there needs to be attention towards what listeners' situationally-determined intentions were in listening to music in the first place."
+
+> "I think the LMA inventory is quite clear throughout, though it has some thematic overlap with the CB episode when referring to others, and with the familarity and physical reactions constructs of exposure/reward. Some prompts are similarly worded and differ in additional details that are helpful, but may not be necessary for representing the concept. Otherwise, this seems coherent and consistent to me."
+
+> "Nice initial pool of items! Overall, these are the main terms / themes that emerged for me in Listening Mode & Agency: Diffuse - 'attention', music as 'background music' Bodily - 'moving to the beat', 'dance' Emotional - 'experiences', 'reminisce'Associative - 'visual imagery', 'thoughts' Structural - 'details', 'anticipating' Reduced / Causal - (unsure and seems to overlap a bit with Structural) Tying back to the description of 'Listening modes & Agency' in the guide document: (1) I think the 'Agency' part is somewhat missing - like is it my personal choice to listen to this specific piece of music now in this current context? Or is it I am subjected to this music because I am in the supermarket, out in the restaurant where there's some background music playing and I have no control over it? Or maybe I am hanging out with my friends and I don't get to choose the music to listen to - it may depend more on group agreement? (2) Bodily - I think most of the items are asking if the music made you (physically) move. How about an urge to move but you didn't actually move along (like just small groovin' movements?) (3) From the doc: ".. common types of attention for music listening" - I think this can benefit from a quick dive into the Attention literature to look into different types of attention (e.g. focused attention, sustained attention, divided attention etc) Lastly, just wondering if there would be a component that measures listening alone vs listening with others? This to me sounds like it would be under Listening modes (although it may appear elsewhere in DEEM)"
+
+> "I think the questionnaire is missing a very common mode of emotional engagement with music, in which the listner experiences the emotions as if they were "in the music" (i.e. "perceived" or "attributed" emotions), rather than as emotions aroused in themselves. These feelings can be very powerful, and the focus of attention can be intense, but at the same time, the person may not be aware that they are, in fact, "reacting emotionally" to music. 
+This coincides with the notion of experiencing emotions as "world-focused" experiences, as opposed to "self-focused" ones (see Lambie & Marcel, 2002)."
+
+> "There are better ways of measuring emotion and the items in this battery felt like it would benefit from being a bit shorter!!"
+
+> "Overall, the listening constructs capture a broad range of listening behaviours effectively.
+I have three comments: one comment regarding the emotional listening construct, a second regarding the interaction between constructs, and a third regarding better operationalising agency within each construct. First, the emotional listening mode appears to capture the emergence of emotional listening appearing in a listener’s/player's conscious experience. However, they do not appear to refer to the intensity or control of the emotional experience with music as per the description. For example, statements like ‘my emotions changed’ is certainly indicative of someone listening emotionally, but dose not capture the emotional intensity or the degree of agency a listener exerts in focusing on emotional listening over other modes. Is it assumed that emotional listening inherently involves more intense emotions, or should this be assessed separately? My point here is not that every statement must capture all these elements simultaneously, but that additional examples that also focus on the degree of intensity and the degree of agency should also be included. Second, I have highlighted some items that suggest an interaction between multiple modes of listening. However, most of the overlaps appear to coincide with an emotionally focused listening mode, while other example appear scarce. For example, diffuse & bodily listening modes: a listener may not be consciously focusing on the music (diffuse), but their body might still unconsciously move or respond to the rhythm (bodily). Alternatively, associative & structural models of listening could overlap: a listener can reflect on the structural elements of the music, such as recognising themes or motifs, while simultaneously allowing those structural elements to prompt associations or guide imagery. It is of course possible to argue that these interactions will be captured by identifying robust measures for individual constructs and seeing in what ways they vary together or not. Yet, if this is the case, it is likely better to remove items where construct overlap could be ambiguously interpreted. Third, the degree of agency there is in each construct appears to favour less agency in most cases. These are typically phrased towards music as the causes the construct, but do not suggest that the individual has much control it. For example, 'the music produced vivid images', this can involve examples where the listener automatically envisions a scene, even if they didn't set out to imagine anything in particular. However, individuals may use music to assist in visualising a scene, and may actively control the details and progression of this mental imagery - like in meditation or as an aid to story writing. The point here is not to focus on what the image is, this seems better captured by the 'Musical Meanings' scheme, but the degree of control one has over it. Another example might be the degree of agency in structural listening, that likely correlates with the degree of musical training.
+Another aspect of agency worth noting is that there appears to be no assessment of the degree of agency individuals have over changing between modes of listening. There are example items where the music changers the mode of listening (less agency), but not of the listener actively changing focus by choice. For example, my bodily focused mode of listening changed to diffuse as I got tired of dancing."
+
+> "The coverage felt pretty clear here! I had some uncertainties around the more general emotional experience items, especially in cases where the attentional dimension felt a bit less clear. I wondered if control of attention/focus was evident in the items? I sensed control come through in relation to emotion and bodily movements for example, but perhaps reflecting on other strands could be worth a bit of time."
+
+> "To me, most of the items in this LMA were captured by other descriptive schemes. For example, Structural LMA seems similar to Musical Meanings Musical Structure. Bodily LMA seems similar to Exposure & Reward Physical Reactions (even though I recognize that Bodily LMA is more embodiment focused). That said, I think the items you selected for LMA were great and fully represented the constructs in Table 1."
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### DF2:
+
+> "I assumed this would be a prerequisite to answering the questionnaire in the first place"
+
+> "One would hope!"
+
+> "Relevant to diffuse construct"
+
+> "I think this item is is going to be answered "yes" 100% of times, so I would rather phrase it as: "I was so concentrated on something else, that I barely noticed that there was music playing", so the item measures the extent to which the person was devoting their attention to the music in comparison to other stimuli."
+
+##### DF3:
+
+> "not clear what 'the situation' is"
+
+> "Wording: since this is a music-related tool, would it be more direct to say "rather than the music" instead of "anything else"?"
+
+> "I think it is hard to interpret this item, because the term "situation" is quite ambiguous. I would rather phrase it as: "While the music was playing, my attention was on other things that were happening at the time, instead of the musical sounds""
+
+> "Relevant; do we leave it respondents to determine what is meant by 'the situation'? Might be the only ambiguity"
+
+> "Does "toward the situation" mean away from the music?"
+
+##### DF5:
+
+> "Wording: I think the choice of word "noise" gives a negative connotation, which is not necessarily required here, since this items looks like it wants to measure if the music captured the individual's attention. How about "Music was simply in the background for me"?"
+
+> "I would change "noise", -which has a negative connotation-, for "sound"."
+
+> "If you're only phrasing items with a positive wording, I'm not sure this item should be used"
+
+##### DF6:
+
+> "Does it matter that it happen only "after some time"?"
+
+> "Perhaps separate 'sometime', and could add a little extra wording (i.e., after some time had passed)?"
+
+##### DF7:
+
+> "This is relevant to diffuse, and is semantically similar to the previous prompt, but captures a different aspect (specifically noticing feelings after some time)"
+
+> "Sentence structure: I realised after a while (insert comma), that the music was bringing out an emotional response in me, or rephrasing the start of the sentence as well: "I gradually became aware that the music was bringing out an emotional response in me""
+
+> "Same as the item before: Why is it important that this realisation happens only "after a while"? Wouldn't it be enough if the person reports that they realised that the music was moving them emotionally, independently of the moment when it happens?"
+
+##### DF11:
+
+> "other things don't necessarily need to be evaluated as 'more important' to simply be more focused on them"
+
+> "this item measures more the subjective assessment of the importance of music"
+
+> "I presume this item is related to Diffuse / attention - with that, I have two comments: "preoccupied with more important things - this is currently vague and it does not reflect whether it is personal matters or the situation itself that the individual is preoccupied with. The second is to consider then (insert "the") music."
+
+> "OK, but I think it is necessary to learn where those "more important things" were: Were they in the person's mind (e.g. future tasks) or were they things happening in the environment?"
+
+> "Relevant, and interesting inclusion of 'more important' things here, rather than 'other things'"
+
+##### DF12:
+
+> "I noticed use of both "ambience" and "ambiance". This word might not be entirely well understood. Should this refer to the music "setting the mood", or "creating an atmosphere"?"
+
+##### DF13:
+
+> "I feel this item is relevant, but perhaps overlap quite substantially with a similarly phrased item ("I was preoccupied with more important things than music"). Just speaking practically, I would estimate that these two items would significantly correlate/overlap, in which case you could perhaps do away with one."
+
+> "This item has a same issue as "I was preoccupied with more important things than music" - something more important could refer to internal thoughts / reflections / situations etc - if it is not important to differentiate between these, then the current writing is alright."
+
+##### DF15:
+
+> "Is it necessary to distinguish between paying more attention to something else than the music, vs. other things? If not, one of these related prompts might be omitted"
+
+> "Interesting! So here we have 'other things' as opposed to 'important things', and curious as to how these subtleties may capture different elements?"
+
+*Revised items*:
+
+DF2: "I was concentrating on something else, so I barely noticed the music"; "I was concentrating on something else, so I was not listening to the music"
+
+DF3: "My attention was on other things happening at the time, rather than the music"
+
+DF5: "Music was simply in the background for me"; "The music was only background noise"
+
+DF6 & DF7: clarity, not sure how to capture differently the idea that the music could be on in the background and attention is not being directed towards in consciously but the music has some emotional effect on the listener. Only after the incident would it be clear for the person that the music might be an element of what was experienced. Maybe it is not important to specify the realization time frame.
+
+DF11: "I was more preoccupied with what I was going to do next than the music"; "I was more preoccupied with what I was thinking about than the music"; I was more preoccupied with what I was feeling than the music" 
+
+DF12: consider construct (affective) "The music set the mood for the experience"; "The music created an atmosphere"
+
+DF13: see DF11
+
+DF15: "I was more attentive to what I was doing than to the music"; "I paid more attention to what I was feeling than the music"; "I paid more attention to my thoughts than to the music"
+
+```{r}
+#| echo: false
+i <- 14
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### BA4: 
+
+> "the I "had to" feels a bit off"
+
+> "Wording: Two issues: (1) "I had to tap or move to the beat.." sounds like individual was forced (by the music) to move along with the music. (2) Is it critical for this item to say "beat of the music" instead of simply "music"? Overall, how about "I felt naturally inclined to tap or move along with the (beat of the) music"?"
+
+> "I would simply put it as: "I tapped or moved to the beat of the music", without the element of feeling compelled to do it."
+
+##### BA5:
+
+> "don't understand the item (what is a physical reaction from the music)"
+
+> "Wording: "physical reaction" is vague - not very sure the intent of this item"
+
+> "I would phrase it as "bodily reaction", so it suggests interoceptive reactions, instead of simple sensations like having ringing ears because the music was too loud."
+
+> "Don't you react TO something, rather than FROM something"
+
+> "Possibly relevant, though it brings to mind some of the items on Qualia that I checked through previously. What situates this more directly as qualia in relation to Listening Mode and Agency"
+
+> "Better under E&R Physical Reactions"
+
+##### BA9:
+
+> "This seems more relevant to LMA than some of the previous prompts which focus more on the physical experience than perceptions of the physical experience"
+
+> "is a bit too complex"
+
+> "It seems to me that in this item you are conflating two phenomena: 1) The phenomenon of moving the body to the music (embodied engagement) and 2) Reflective attention to the fact that the body was moving along with the music"
+
+> "Blurs between bodily and emotional, but I think reads with preferences the felt part of the experience not the bodily."
+
+##### BA10:
+
+> "Thoughts: I personally think that this item is alright in and of itself, but it is not as important alongside the other items that measures bodily movements to music."
+
+> "Again, I'm not sure about the usefulness of this type of item, that points to whether the person felt obliged to do something."
+
+> "Feels relevant, if a slightly strange wording/item!"
+
+##### BA11:
+
+> "don't know what "physically connected with the music" means."
+
+> "Wording: not immediately apparent what "physically connected with the music" refers to - although I assume it is moving to the music."
+
+> "If you want to distinguish between the 6 tyeps of "listening modes and agency" that you propose in the guide document (page 8), then you shouldn't conflate "bodily engagement" with "emotional engagement", as you do in this item."
+
+> "Blurs between bodily and emotional listening modes, but the priority is toward the bodily driving the listening style"
+
+> "Like this item, think I can see the relevance as a kind of listening mode"
+
+> ""physically connected with the music" should be rephrased"
+
+*Revised items*:
+
+BA1: rewrite, "I noticed that the music produced sensations in my body while listening to it"
+
+BA3: rewrite, "I noticed how my body was moving with the music"
+
+BA4: rewrite, "It felt natural to tap or move along with the music"
+
+BA5: consider Construct (QRE)
+
+BA9: rewrite, "I was aware of how moving to the music made me feel"
+
+BA10: keep
+
+BA11: remove, BA9 & BA10 do this area better
+
+BA19: consider construct (CB), "I felt synchronised with how I imagine other people move to this music"
+
+BA20: rewrite, "The situation called for moving to the music"
+
+BA21: remove
+
+BA22: keep
+
+```{r}
+#| echo: false
+i <- 15
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### EA3: I experienced a wide range of emotions while listening to the music
+
+> "Too vague?"
+
+> "This is quite relevant to reduced/causal, associative, bodily, and emotional constructs of LMA. May have overlap with exposure/reward."
+
+> "I'm not sure about this one. If a person feels a "single" emotion while listening to music, but with high intensity, is this person less emotionally engaged with it than a person who reports "a wide range of emotions"? I don't think so."
+
+> "This is relevant but if you are actually interested in emotion reaction then there are better ways of capturing it."
+
+> "Again, perhaps with the emotional experience items there feels some commonality possibly with Musical Meaning (unless that scheme is more specifically about meaning 'in' the music)"
+
+##### EA9: The music took me on an emotional journey
+
+> "What does this mean?"
+
+> "This prompt may have some overlap with Musical Meanings and Exposure/Reward subcategories."
+
+> "journey through/towards what?"
+
+> "I can see these emotion items are clustering, I guess I am wondering about how it aligns with 'common types of attention' for this descriptive scheme (but as with other emotion items, I can see alignment with 'affectual' factors)"
+
+##### EA10: My emotions changed as I continued to listen to the music
+
+> "I like this item, but I wonder whether it could be clearer in some way. The use of the word 'continued' has particular connotations for me, such as that I initially felt one emotion but this then morphed into another during the course of the music. I think some added clarity/an example here might make this that bit easier to interpret."
+
+> "In my opinion, this is more relevant than the previous prompt as it captures the active listening aspect more directly."
+
+> "I'm not sure about this one, either, for the same reason as the one I commented before: a person can have a very strong emotional engagement with music, without feeling that their emotional response is "changing" as the music progresses."
+
+> "You see my consistent response to the emotion items; they may all be relevant, I just have a bit of uncertainty as the aim/fit etc."
+
+*Revised items*:
+
+EA2: "I got emotional while listening to the music"; "I noticed how the music was making me feel"
+
+EA3: "The music made me feel a wide array of emotions"; "I predominately felt one emotion while listening to the music"; "The intensity of my emotion while listening was particularly strong"
+
+EA8: "I noticed the music caused me to feel a certain way"
+
+EA9: remove?
+
+EA10: "I felt one emotion morphed into another during the course of the music"; "My emotions merged together as the music progressed"; "I hardly noticed my emotions change as I listened to the music";
+
+EA17: consider construct (MM-source)
+
+EA21: "I was in control of how the music made me feel"
+
+```{r}
+#| echo: false
+i <- 16
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items: 
+
+##### AA2: The music induced visual imagery for me
+
+> "'visual imagery' might be a bit technical for lay persons"
+
+> "This relates quite closely to Exposure & Reward - Physical Reactions"
+
+> "very relevant, but the term "visual imagery" is not suitable for lay people"
+
+> "I would phrase in less technical terms: "the music made me imagine things" or "see things inside my mind""
+
+> "Think this works, although wording might be improved to clarify for respondents (i.e., do we take for granted an intuitive sense as to what 'visual imagery' is?)"
+
+*Revised items*:
+
+AA2: AA17 = overall associations to prior memories, AA7 = simialr to AA17, Need fictional stories, abstract visuals, media, lifetime, and sensational memories
+
+AA3: rewrite, "I thought of fictional stories while listening to the music"
+
+AA7: changed version isn't reflected, rewrite to original ("I felt nostalgic while listening to the music")
+
+AA9: consider removing
+
+AA10: remove
+
+AA15: rewrite, "The music put me in a reflective mood"
+
+AA18: ambiguous as currently written, remove or make apart of reduced/causal
+
+```{r}
+#| echo: false
+i <- 17
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### SA4: I transformed sounds into music by the way I was litening
+
+> "This feels quite vague to me. I'm not sure a lay audience would necessarily follow the meaning of this?"
+
+> "Somewhat relevant to "associative" construct. Could also relate to Functional Context - AIA - Curiosity?"
+
+> "unsure how that would look like?"
+
+> "I presume that this item is related to the construct Structural - In my opinion, it may not be intuitive for a lay person to differentiate between sounds and music: for instance, when one listens to music, they intuitively describe it as music, instead of sounds becoming music. Unless this item is asking for sounds as in natural sounds (e.g., bird chirping, alarm clock etc)?"
+
+> "This item is hard to understand. Does it mean that the person was listening to "non-musical sounds" as if they were music?"
+
+> "Not sure about this one! A bit unusual, though interesting"
+
+> "Like the speech to song effect? A non-music cognition person wouldn't know what this means"
+
+##### SA7: As the music progressed, the themes or melodies made me feel differently
+
+> "Captures Emotional, Reduced/Causal constructs"
+
+> "Does it matter if it was the melody, the themes or something else? I think it would be enough with learning that the participant started to feel different in response to the music, regardless of the particular aspect of it that produced the effect."
+
+> "This seems like a blurring of two listening styles (structural & emotional). Emotional listening in this case suggesting little control of induced feelings. Is this blending on purpose? i.e. there is a theoretical reason to imply multiple modes of listening occurring simultaneously? If there is, are all combinations accounted for?"
+
+##### SA8: I tried to match my emotions to the themes happening in the music
+
+> "Relevant to Emotional/Structural constructs"
+
+> "I find this item difficult to understand. Are you using the term "theme" in the traditional sense (as in "theme and variations")?"
+
+> "Little unsure about this one? I think generally I am missing a little of the logic regarding the general emotional experience items!"
+
+##### SA11: Listening for details in the music allowed me to anticipate what came next
+
+> "Relevant to Structural construct, but could also fit into AIA -  curiosity?"
+
+> "Grammar: Because the sentence starts with "Listening for ...", it feels more natural to end with "what is coming next" - although I understand the motivation for choosing what "came next""
+
+> "Also applicable to Musical Meanings, Musical Structure"
+
+##### SA19: I chose to pay attention to the structural development of the music
+
+> "'structural development' might be a bit technical"
+
+> "Nonmusicians may find "structural" confusing, and there are other prompts with similar meaning that may be a little clearer."
+
+> "Personally, "structural development" of the music reads fine - but I'm not too sure if a lay person would easily understand this."
+
+> "Also works with MM, Musical Structure"
+
+*Revised items*:
+
+SA1: rewrite, "I focused on hearing patterns in the music"; "I was focused on understanding the musical theme"; "The melody of the music caught my attention"; "The progression of musical chords fascinated me"
+
+SA4: alternatives, "I focused on different parts of the music to change how I understand it"; "Listening to a different instrument caused me to hear the music in a new way"
+
+SA7: remove?
+
+SA8: remove?
+
+SA11: "Listening for details in the music allowed me to anticipate what was coming next"
+
+SA16: consider construct (MM-source)
+
+SA19: rewrite to remove 'structural development'
+
+```{r}
+#| echo: false
+i <- 18
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### RC2: I gained new insights about the music by focusing on the small details
+
+> "Just a suggestion, but sometimes I find it can prove useful to provide participants with an example of what is meant here. For instance, focusing on small details could relate to aspects of composition, instrumentation, vocal, and melodic content. I could plausibly feel a stronger emotional connection to a piece of music by, for example, paying closer attention to a specific set of lyrics or by focusing on a particular melody. It may be worth considering, therefore, being a little more explicit regarding exactly what you mean by "small details" here, as participants could interpret this in several ways (that's if you have a particular set of details in mind).."
+
+##### RC7: Focusing on specific musical details made me more aware of my emotions
+
+> "Highly relevant to LMA"
+
+> "While this sentence reads fine, I'm wondering about the utility of this item - I'm guessing this would capture more nuances in studies of musicians vs non-musicians, because non-musicians may not be as aware of the specific musical details as compared to musicians."
+
+> "I'm not sure if this item measures the "type" of attention that the participant paid to the music. It seems to point more on the explanation that he or she gives to the role of the music in helping them reflect about their own emotions."
+
+> "an example of a change in listening modes"
+
+##### RC9: I focused intensely on the individual sounds to prepare for any changes
+
+> "Ending of the statement feels odd"
+
+> "prepare for is a strange concept"
+
+> "This seems less relevant than the previous prompt as preparing for changes doesn't seem central to LMA, and I'm not sure if it captures any additional information than focusing intensely in the first place"
+
+> "modify: "any changes in the music""
+
+> "Same comments about focused "intensely" and utility of this question - it may be more applicable to comparisons of musicians vs non-musicians."
+
+> "It is possible to prepare for changes in the music, without attempting to trace "individual sounds". In fact, one usually notices harmonic changes because one has been paid attention to "groups of sounds" (chords), which may be produced by several instruments at the same time."
+
+> "Perhaps a bit vague at the end of the item, might be a bit difficult to respond to?"
+
+##### RC12: I was so caught up in the music I forgot about the world outside of myself
+
+> "I wouldn't phrase it as "the world outside of myself", because people can focus on the music without focusing in themselves. I would phrase it as "I was so caught up in the music that I forgot about everything else that was happening at the moment""
+
+> "Another example of somewhat undifferentiated form of deep engagement, but this example does suggest more of an emotional focus"
+
+> "Clear, feels like a nice integration of the descriptive scheme and possibly AIA episodes"
+
+##### RC16: I chose to analyse the minor details of the music
+
+> "Minor details could be confused with music in a minor key. I think other prompts capture this idea more clearly"
+
+> ""minor details" may mean different things to different individuals depending on their level of musical expertise."
+
+*Revised items*:
+
+RC2: add examples? (small details are subjective and could be understood entirely differently depending on variables associated with the individual listening and the music itself. It might not be feasible or worth the effort to exemplify what the details are as this would be better understood qualitatively. The reason to include examples might be for clarity of the construct aiming to measure (i.e. if we knew what details might be commonly referenced in all types of listening scenario))
+
+RC5: change "I analysed the complexity in the music" back to original/rewrite "I was analyzing the subtle complexity of the music"
+
+RC7: could create more "change" listening mode items
+
+RC8: change back to original "I focused so much on details of the music that I forgot about everything else around me"
+
+RC9: for structural = "I focused on X to prepare me for any changes in the music"; for RC = "I was hyper fixated on the music to prepare for any changes in the music"; "I was hyper fixated on the music to prepare for any changes in the situation"
+
+RC12: "I was so caught up in the music that I forgot about everything else that was happening at the moment"
+
+RC16: could input 'micro', 'small', 'overlooked'
+
+```{r}
+#| echo: false
+i <- 19
+```
+
+# Musical Meaning Overall Comments:
+
+> "This category seems inspired by Thompson et al's paper on musical appreciation. I think I would like to see more representation of historic and sociopolitical context, and how extramusical meaning (like some non-musical aesthetics) play a role in the meaning. I was thinking of iconic associations like MF Doom's mask"
+
+> "Three points: one regarding the greater inclusion on lyrics into musical meaning, a second regarding lack of meaning, and a third regarding depth of meaning. First: Lyrics are clearly presented in relation to self-meaning and some what in social-meaning, but could be more equally represented across the three types of meaning. For instance, in structural-meaning items that focus is on how the lyrical content interacts with musical elements (e.g., rhythm, phrasing, and harmony) and/or how it fits or contrasts with the overall musical composition. With regard to social-meaning, lyrics relating to the broader cultural, historical, or sociopolitical ideas are there. However, these could be expanded to capture ideas such as lyrics challenge or reinforce social norms, offering critique or support of cultural practices; the lyrics empower the listener, reflecting the persona or advocacy of the artist, giving a sense of agency or social power; or lyrics could reflect collective experiences or shared social causes, influencing social bonds. Second: I have made one comment under a single item that appears to capture a lack of meaning, instead of referring to a specified musical-meaning construct. My suggestion is to include specific examples of lack of meaning, or inability to grasp meaning even when trying for each construct individually. I explicitly suggest these two ideas (inability to find meaning, and searching for meaning) be separated out. This will allow for individual motivations to find meaning and predispositions towards identifying certain types of meaning are not confused. For example, with the musical structure construct items that reflect a lack of meaning could included "I felt lost when listening to music because I didn't understand its structure". Similarly the self construct might be "I struggle to find personal connections to songs I hear (on the radio / for the first time.)", or "I rarely find songs that resonate with my personal experiences." Third: Some items appear to reflect different degrees of 'depth of meaning' with regard to the complexity or emotional richness they reference. For example, the difference between an important and personal memory, as opposed to, being reminded of someone you know possibly not particularly well. I was wondering if this was considered during the operationalisation of these constructs. While the degree of emotional depth any individual has with a piece of music would appear to be captured by simply identifying how many types of musical meaning a participant identifies as important, without acknowledging that certain items may reference a greater degree of depth of meaning than others may skew the results."
+
+> "In general, I think that items for Musical Structure are mostly covered at a very broad level using the term 'musical structure' - I wonder if it would be useful to break it down a little to have smaller components: melodic developments, harmonic or rhythmic structure, timbre, complexity - for e.g., "I appreciated the melodic developments in the music." For items in Self, one interesting aspect that could be included is scenarios whereby sometimes an individual's private listening persona may differ as compared to a public persona due to peer or social affiliations (e.g. I like to listen to Classical music in private but may agree to go to a Rock music concert because my friends go to these concerts). This concept may have been covered in Group cohesion / socialization. For items in 'Source', generally I think it is a matter of how much you want to distinguish between a composer's actual intent for the music vs how the performer interprets it - that could affect the construction of some items."
+
+> "In general I thought the items were good, however, would generally consider whether some of the items relate more generally to musical aesthetic, rather than meaning per se. Perhaps distinguishing these from each other would (a) help reduce the item pool and (b) provide a somewhat more targeted subset of items to gauge musical meaning."
+
+> "At times I was wondering about whether some items could be more specific in terms of the attributes of the music (though you do touch on lyrics, structure, artists/performers, composers, communication/message...); for instance some items touch on individual parts, but is there any value in being more specific at times (i.e., melody, rhythm, harmony...)? Perhaps not! Perhaps a bit more could be focussed on cultural/national heritage, subculture/group membership, though you do get some of this in the CB episode texts too... No immediate further comments with this, I think the items were quite good overall, and perhaps the prominent issue was with 'wording'."
+
+> "I suggest adding items that refer to situations in which the music just works as a "sonic wallpaper", and the listener does not attempt to create meaning out of it. E.g.: "The music was playing on the background, to cover the silence" I also suggest adding items that refer to the role of music in creating a sense of community. E.g.: "The music was meaningful to me because it helped me feel that I belonged in the group of people I was with at the moment" Finally, I would add items related to creatring meaning by engaging in mental imagery. E.g. "I made sense of what the music was trying to communicate by creating images and/or stories in my mind"."
+
+> "These items seemed a bit hit or miss, but that could be the way I interpreted the meaning in Table 1."
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+#### Expert quotes regarding specific items:
+
+##### ST1: "The content of the music helped me understand what it was trying to say"
+
+> "Two comments: (1) 'the content of the music' - to me, it could refer to either the musical features or the lyrics of the music. Is it important here to distinguish if it was the musical features OR the lyrics? If so, this item can be further refined. (2) "what it was trying to say" - could be refined to "what it was trying to convey""
+
+> "Maybe a bit tautological?"
+
+> "Perhaps it would be more general (and useful) if you phrase it as: "The music helped me understand what I was thinking and feeling""
+
+> "I'm not sure what this means"
+
+##### ST4: "I was interested in understanding the structure of the music"
+
+> "I see why this is perhaps relevant, but wonder whether it is indicative of music meaning or aesthetic appreciation. From a participant's perspective, I could plausibly rate this item highly if I found the music meaningful OR if I was, for instance, intending to learn or otherwise analyse a particular piece of music. This may make this item somewhat noisy in ecologically valid settings, so I think it either needs to be more specific or done away with personally."
+
+> "Clear, but can see applicability to some other schemes perhaps as well (maybe reward + exposure)"
+
+##### ST6: "Specific parts of the music create the meaning of the whole piece for me"
+
+> "I just feel this is too much EMphasis on structural analysis"
+
+> "Too ambiguous."
+
+##### ST7: "I was impacted by meaningful moments in the music"
+
+> "Fairly specialist question"
+
+> "I like what this item is driving at, but my only note would be to consider the characterisation of "meaningful" moments in the music. What defines a meaningful moment? I appreciate there is always going to be a degree of subjectivity with this, but I wonder if this is perhaps a little too vague/open to interpretation. An example or different phrasing (e.g., "I was moved by impactful moments in the music") might provide some greater interpretive consistency."
+
+##### ST9: "The musical structure meant something because of how it made me feel"
+
+> "Also relevant to LMA - emotional"
+
+> "I wonder if 'musical structure' here is too general here - if it is worth to break it down into melodic, harmonic, rhythmic structure?"
+
+> "Again, I like this item, but I wonder if there could be some greater specificity. What is meant by musical structure here? Are we talking about instrumentation or song progression etc? I wonder if there could be a little more clarity in this to increase the likelihood of consistent interpretation (this comment applies to all instance referring to music 'structure' by the way).."
+
+> "Interesting item, giving a sense of sequence (i.e., feeling --> meaning)?"
+
+##### ST10: "My emotions were aligned with the expression of emotion coming from the music"
+
+> "More relevant to LMA - emotional"
+
+> "A clear item, wondered how 'contagion' (which is what this item evokes for me) equates to 'musical meaning' as described"
+
+##### ST12: "The music expressed something that I could not express in words"
+
+> "Would this be improved if the item says that the music expressed something the respondent 'wanted' to express, but did not have the words for? Of course want to keep text concise, but should there be an element here specifying something about a respondent feeling a desire to express that something?"
+
+##### ST13: "The harmony, melody, or rhythm prepared me for upcoming changes"
+
+> "upcoming changes in the music, or in life?"
+
+> "Seems more relevant to LMA"
+
+> "upcoming changes in the music or in life?"
+
+> "As with some other items, I wonder about whether this relates to meaning or aesthetic factors. Expectancy in terms of things like rhythm does not necessarily mean the music was emotionally meaningful? I'm not sure this measures the intended structure in this case."
+
+> "Seems quite clear, with a cognitive angle"
+
+> ""... for upcoming changes in the music""
+
+##### ST16: "I learned what parts were important for developming the meaning of the music"
+
+> "'what parts' is a bit vague"
+
+> "I think there are other prompts that capture the goal of this prompt more directly, though they don't get at "developing meaning over time" as directly"
+
+> "meaning of the music sounds strange in this context and non-specific. My suggestion would be to break this idea down further into specific situational components e.g. "I learned which musical elements were most important for understanding the emotional or symbolic meaning of the music."; "I learned which parts of the music were key to shaping my emotional response or connection to its meaning."; "I learned which parts of the music were important for interpreting its meaning or guiding my emotional reactions." I feel this better clarifies the types of meaning"
+
+> "Seems good, perhaps the word 'developing' feels a little odd here"
+
+> ""what parts of the music were important for its meaning""
+
+##### ST17: "I tried to understand what the music was trying to communicate"
+
+> "I think this is an incredibly important item in highlighting the search for meaning. However, this goal does not appear to capture a type of musical meaning but instead the absence of it. It this sense, I don't feel it fits well into any of the three given categories. Instead, it could be the search for but absence of any of the three constructs. Could this item be more specifically adapted to capture the absence of meaning in each of the three constructs (structure, self, source)."
+
+> "Is there a reason why this item asks "I tried to understand" vs "I could understand what the music.."?"
+
+> "Doesn't this item appear in one of the other batteries?"
+
+> "If this is going towards the Source construct, I would change the word "music" to "musician" or add a modifier to "communicate" like "communicate politically""
+
+*Revised items*:
+
+ST1: remove
+
+ST4: consider construct (LMA-structural)
+
+ST6, ST7, ST9: could distinguish per second overall MM comment
+
+ST10: rewrite for clarity
+
+ST12: consider rewrite
+
+ST13: rewrite for upcoming changes clarity
+
+ST16: "I learned which musical elements were most important for understanding the emotional meaning of the music"; "I learned which parts of the music were key to shaping my connection to its meaning"; "I learned which parts of the music were important for interpreting its meaning"
+
+ST17: need to address first comment for ST17
+
+```{r}
+#| echo: false
+i <- 20
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+### Expert quotes regarding specific items:
+
+##### SE1: "The music expressed something personal and touching to me"
+
+> "I would usually advise against compound questions (where you ask more than one thing in a question)"
+
+> "If this is aimed at self expression, I would make the self the main noun of the sentence, rather than the music. "I was able to express myself because the music was personal and touching to me""
+
+##### SE3: "The music affected my personal identity"
+
+> "This is relevant, though somewhat challenging to grasp. Is it continued exposure/engagement with the music over a long period that affected the personal identity? If so, what aspects?"
+
+> "I'm unsure the motivations for how music could "affect" personal identity, as compared to "reflect" personal identity? But I do think that an item of music and personal identity is relevant."
+
+> "Wondered if it might be a bit difficult to respond to (do people have a sense that identity can be affected in a single instant/episode as it were?)"
+
+> "I would phrase it as: "The music resonated with my personal identity""
+
+##### SE6: "The music helped me understand myself"
+
+> "I wonder if making the link to "meaning" more directly would help here. I was thinking of Langer's musical isomorphism, where aspects of the music mimic the structure of a personal memory/experience"
+
+> "I'm not sure how commonly (without intentional effort or guidance from a practitioner) that music could help an individual to understand him/herself in everyday life - rather, it should be more common that the music helps the individual express their certain feelings that perhaps they are not consciously aware of, but can identify with, and therefore better understand themselves."
+
+##### SE10: "The music encapsulates a certain time of my life"
+
+> "Really like this item - but my opinion is that "encapsulates" could potentially be an unfamiliar word for some readers; perhaps to consider more accessible alternatives such as "represents" or "captures". In addition, does this item need to be written in the past tense instead (as with other items)?"
+
+##### SE11: "The experience was meaningful because the music gave me an unforgettable moment"
+
+> "I think this is very relevant, though the grammar may be tweaked slightly to avoid personifying music. Such as "I felt the experience was unforgettable because of a moment in the music". I'm not sure if what's unforgettable is the experience or a moment in the music, though"
+
+> "Suggested rewording: ...the music made the moment unforgettable"
+
+##### SE12: "I associate this music with specific memories"
+
+> "Also relevant to LMA - associative"
+
+> "Whilst relevant, I would say this is reflected by some of the other items in this list. There could perhaps be some consolidation to reduce the number of items relating to the evocation of specific memories."
+
+##### SE13: "I associate this music with particular values I want to have"
+
+> "'want to have' or 'have'?"
+
+> "This one is a little more nuanced and may cause some confusion. I also think this captures LMA - associative more closely"
+
+> "Is there a reason for values "I want to have" instead of "values I have"?"
+
+> "Quite like this item, interested to see how intuitive it will be to respond to!"
+
+##### SE15: "I felt free to be who ever I wanted to be when the music came on"
+
+> "The phrase "be whoever I wanted to be" seems broad. Suggestion: is meant to assess emotional freedom, self-exploration, or social identity."
+
+> "Really like this item - minor comment about the wording: could consider to replace "came on" with "... began playing (or started to play)""
+
+> "Seems relevant, though the wording is perhaps a little unclear (or I do not have the most 'direct' sense as to what this gets at)"
+
+### *Revised items*:
+
+SE1: "The music expressed something personally significant to me"
+
+SE3: "The music resonated with my personal identity"
+
+SE6: rewrite in someway?
+
+SE7: rewrite in english spelling
+
+SE8 "I think of the same people when I hear this type of music" 
+
+SE10: "This music personified a certain time of my life"; "The music reminded me of a certain time in my life"
+
+SE11: "I felt the experience was unforgettable because of a moment in the music"; "The music made the moment unforgettable for me"
+
+SE12: consider construct (LMA-associative)
+
+SE13: consider construct (LMA-associative); "I associate this music with particular values I have"
+
+SE15: "I felt free to be my true self when the music began playing"; "I felt free to be a different version of myself when the music began playing"; "The music was meaningful to me because it allowed me to express who I am"
+
+SE21: add "The music is special to someone close to me which is why I find it meaningful"
+
+```{r}
+#| echo: false
+i <- 21
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+### Expert quotes regarding specific items:
+
+##### SO2: "The music is important to my cultural history or identity"
+
+> "perhaps split identity and cultural history into two items"
+
+> "Really like this item too, but it would be good to minimize the use of 'or' so that the item is more definitive. Could also consider "cultural heritage" instead of "cultural history""
+
+> "Perhaps, for lay people, it could be better to phrase it in terms of "my sense of belonging to a group""
+
+##### SO6: "I got meaning by imagining the musicians playing and performing"
+
+> ""I got meaning" is a bit strange wording"
+
+> "Not sure if this refers to sense of personal meaning, or understanding the expressed meaning of the music. Either way, it's relevant, but if there's a specific goal with this prompt, it may be revised"
+
+> "Like this item - but consider to refine "I got meaning" with "I derived meaning from the music by...""
+
+> "Makes sense, though the 'I got meaning' wording feels strange"
+
+> "Is the phrase "I got meaning" clear for a lay person? I personally find it hard to understand."
+
+##### SO11: "I admired the technique of the musicians"
+
+> "I think the connection to musical meaning might be made more explicit, such as "The technique of the musicians helped me realize the music's meaning""
+
+> "If there isn't another item that asks about the interpretation of the performer, I might either add this content here or create another item that asks about that."
+
+> "I again wonder if this is more aesthetic appreciation rather than musical meaning per se."
+
+##### SO14: "I connected to what the artist was trying to create the music to mean"
+
+> "wording a bit confusing to follow"
+
+> "Could this be tweaked to "I connected with the musical meaning intended by the artist"?"
+
+> "too complex, didn't understand"
+
+> "In line with the other items, it would be nice to standardize 'composer' or 'artist' (and even perhaps 'performer' - depending on how much you want to distinguish between the emotions intended to be conveyed by the composer vs the performer)"
+
+> "complex wording"
+
+> "I understand the meaning of this item and think it is relevant, however, I think it should be rephrased to read a little more clearly. "trying to create the music to mean" is a little hard to understand. Maybe something like "I connected with the artist's intended meaning for the music"? Just an idea!"
+
+> "The relevance is clear, but the wording is less so, and I think could be improved"
+
+> "I would phrase it as: "I connected to the message the artist(s) were trying to convey with the music""
+
+##### SO16: "The music made me feel up to date with what my friends listen to"
+
+> "Also relevant to CB - group cohesion/socialization"
+
+> ""up to date" should require hyphens: "up-to-date", or perhaps just "updated""
+
+##### SO19: "Listening to music expressed my political attitude"
+
+> "Would it be clearer to say "The music expressed my political attitude"?"
+
+> "I like this item about music and political attitude, but I wonder if people usually listen to music to express their political attitude, or would it be more of a social phenomenon - like people share the music they listen to with others to show that they support a particular political stance, vs just simply listening to the music for the purposes of expressing their political attitude."
+
+> "Quite specific in comparison to some others, but the relevance seems clear"
+
+> "I would phrase it as "...helped me express my political attitudes""
+
+##### SO25: "The meaning of the music was similar to other songs or pieces I know"
+
+> "Unsure the utility of this item - What does knowing about whether someone found meaning of the music similar to other songs he/she know tell us about Musical meanings?"
+
+### *Revised items*:
+
+SO2: add "The music is an important part of my cultural heritage"; "The music is important to my sense of cultural identity" 
+
+SO6: rewrite, "The meaning of the music was enhanced by the performance of the musicians"
+
+SO11: rewrite, "The technique of the musicians helped me realise the music's meaning"
+
+SO14: rewrite, "I connected with the composer's intended meaning for the music"; "I connected to the message the artist(s) were trying to convey with the music"
+
+SO16: "Listening to the music updated me about why people find it meaningful"; "Listening to the music made me feel up-to-date with cultural trends"
+
+SO17: rewrite, "My interest in the artist(s) is why I was listening to the music"
+
+SO19: add "The music helped me express my political attitude"
+
+SO21: rewrite, "I was thinking about what life the artist had at the time they created the music"
+
+SO22: rewrite. "I was thinking about how the performers created the music together"
+
+SO25: remove
+
+SO26: rewrite, "I considered the music's historical context to understand what it meant"
+
+```{r}
+#| echo: false
+i <- 22
+```
+
+# Qualia, Reward, Exposure Overall Comments:
+
+> "With regard to the 4 constructs in the scheme, there appears to be more that could be added to capture the multi-dimensionality of each. Exposure: this appears to capture more of the examples where exposure has occurred and is important in building liking. However, the alternative end to this dimensions is neglected - 'Novelty'. The perception of change in stimuli and the reward of finding something new are most certainly tied to novelty evaluations. Similarly, I would argue that a greater focus on 'Goal-congruence' would help better capture this construct. The "reward of finding something new" aligns with an appraisal of whether the novelty is congruent with the individual's goals - whether encountering something new serves a positive, rewarding function. Phrased more simply, a greater focus on exposure to novel experiences is a valuable and form of exposure in its self. Familiarity: is logically very closely tied to the above comments for exposure. However, given the operational definition in the documents, I would add that familiarity here should be expanded to capture the 'anticipation of reward' either as cognitive, emotional, or physical reward. Preference: seems very tied into the degree of goal-congruence a stimuli has based on previous experience. The examples here seem to miss the range of congruence to non-congruence that a stimuli could be assessed as i.e. developing disliking though previous exposure to non-congruent stimuli. Physical Reactions: Bodily experiences can be a focus of appraisal themselves - 'embodied appraisal'. In reference to the above comments I would suggest that bodily sensations are appraisal as part of 'Exposure' be this a novel bodily sensation or a familiar one. Preference too for certain bodily sensations might build over time or vary by situational context. Finally, there is the degree of 'coping potential' regarding physical responses. For example, some physical responses may not always be desired. Crying for instance, while often pleasant, might be non-congruent with the context or be negatively overwhelming in emotionally. Overexposure might physically manifest itself as fatigue, boredom, or irritation. Or familiarity and exposure too a disliked genre of music might build physical experiences of tension. I hope these comments are helpful in trying to operationalise these constructs and help to capture the inherent interrelatedness between them.
+
+> "I think the qualia aspect comes through quite clearly. I am not so sure if aspects of 'personal value' or 'value judgment' were so consistent in the items I rated? And physical pleasure/displeasure was perhaps not explicitly treated as such (sensations/reactions included could be quite ambiguous in the hedonic dimension)."
+
+> "I think there could be greater emphasis on the Reward element here. Perhaps an item or two that reflects achievement of intended goals? For instance, "I got what I wanted from the music" or something along those lines?"
+
+> "Here are my suggestions:I would add more items about mere exposure. E.g.: "The more I listened to this music, the more I liked it." Add some negative items about familiarity and values. E.g.: "I disliked the music because it was new to me (or because I was unfamiliar with the music)" "I disliked the music because it clashes with my personal values" Finally, this may overlap with other categories, but I think the questionnaire could look into other sources of reward in music. For instance, finding that listening to a particular piece of music is rewarding because... - It is intellectually challenging, difficult to understand, etc. - It brings back personal memories - It helps the listener to dance - It helps the listener to achieve a non-musical goal. Eg. exercising with a steady rhythm, forget unwanted thoughts, covering noise, achieving concentration, relaxing, feeling part of a cultural elite, etc."
+
+> "For Exposure ("reward of finding something new"), wouldn't that fit better with the AIA Functional Context?"
+
+> "Comments for Familiarity:
+The current items are mostly at the broader level, with the use of word "familiar" to measure familiarity. I wonder if it may be better to further operationalize "familiar" (or break it down to what is the expected outcome with someone being familiar to the music or genre), e.g. "I am able to recognize the name of the music / artist", "I have not heard of this piece of music"?"
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+### Expert quotes regarding specific items:
+
+##### QU1: "I experienced physical sensations (tears, shivers, etc.) while listening to the music"
+
+> "other possible option would be to provide separate subquestions for tears vs shivers etc, but this might be too long"
+
+> "Clear, though both sensation 'examples' feel a bit more like 'objective' reactions in some way, rather than anything more interoceptive? Might not matter!"
+
+> "I like this item - but would suggest to remove "etc" and consider "... physical sensations (e.g., tears, shivers) ...""
+
+##### QU3: "I got chills or goosebumps from the music"
+
+> "I like this item too, but I think it could be refined to "I experienced chills ..." instead of "got""
+
+##### QU4: "The music changed my body (e.g. heartbeat, prickling, chills)"
+
+> "wording is a bit funny"
+
+> "Highly relevant to physical reactions, but also bodily construct of LMA"
+
+> "technically it doesn't change the BODY, but maybe bodily sensations/processing?"
+
+> "Okay, bit more interoceptive sensation. Are these chills somehow different from those mentioned alongside goosebumps in another item? Felt a bit odd as repetition that is all"
+
+> "I like the intention of this item, but in my opinion, it feels a little awkward to say the music "changed my body" - consider: "The music induced bodily responses (e.g., increased heart rate, chills) in me""
+
+##### QU7: "The experience had me on the verge of crying from the song"
+
+> ""The song had me on the verge of crying" seems a clearer wording"
+
+> "Should this say "crying to the song", or "crying in response to the song"? Overlap with PEP - expressing feelings or EDR - Distraction"
+
+> "It is relevant, but the wording is a little clunky!"
+
+> "I would phrase it as "Listening to the music had me on the verge of crying""
+
+> "In this item, it refers specifically to "song" - which leads me to think directly of a song (with lyrics) - would that be the intention of this item? And is it important to differentiate between song vs music in this section? If not, it might be worth standardizing the reference to music as "music" instead of using it interchangeably with "song""
+
+### *Revised items*:
+
+QU1: "I experienced physical sensations (tears, shivers, goosebumps) while listening to the music"
+
+QU3: "I experienced chills from the music"
+
+QU4: "While listening, I noticed sensations in my body change (heartbeat, prickling, goosebumps, temperature)"
+
+QU5: keep
+
+QU7: rewrite, "While listening, I noticed tears starting to form in my eyes"; OG consider construct (PEP)
+
+```{r}
+#| echo: false
+i <- 23
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+### Expert quotes regarding specific items:
+
+##### PO2: "I was looking to find new music"
+
+> "Relevant to "exposure" construct. I was curious about whether this implies the experience leads to the desire for new music, as opposed to AIA - Curiosity, where the music leads to the desire for new experiences"
+
+> "I believe this item is part of the Exposure construct, but am not very sure its intent - i.e. if someone scores high on this item, what is the implication? In my opinion, it would also be a measure of personality traits such as Openness (individuals who score higher to Openness are more inclined to find new music and have a greater variety of preferred musical genres)"
+
+##### PO3: "I expected to encounter new music"
+
+> "Seems like it relates more to a situational expectation, but lacks the explicit motivation of looking for new music or the reward of finding it."
+
+> "I had thought E&R related to exposure and responses to music, rather than about expectation about experiences with music"
+
+> "I would phrase it as "I was pleased to listen to the novelty of the music""
+
+##### PO4: "I knew I was hearing the song for the first time"
+
+> "This phrasing of familiarity type could be confused with a more metaphorical interpretation. E.g., I know the song and have done for years, but when I heard someone else sing it "I was hearing it for the first time". Suggestion: "I knew I'd never heard the song before"?"
+
+> "I really like this item, but have the same comment as in the previous items regarding the current interchangeability between "song" and "music""
+
+##### PO5: "I listened to music because it sounded like it would fit into my life"
+
+> "wording a bit confusing"
+
+> "Relevant also to musical meaning - self"
+
+> "Possibly relevant, but the item felt a little bit obscure? Might be tricky to answer"
+
+> "I believe this item wants to measure personal value (under the construct Preferences) - but I am not too sure about its face value, how about "I chose to listen to music because it resonated with my personal value (or life)"?"
+
+##### PO6: "I listened to the music to inform myself about what was happening in the musical scene"
+
+> "Difficult to rate, it seems to be about the contents of the music"
+
+> "Seems more relevant to LMA - Reduced/causal or associative"
+
+> "Seems a little less relevant, has a knowledge-acquisition feeling that I did not see emerge clearly in the descriptive scheme outline?"
+
+> "I think this item reads fine, but it may be an item that would yield more distinct differences between professional musicians (or extreme music enthusiasts) vs non-musicians (or the general public, would may not purposefully listen to music for the sake of informing themselves about the most updated thing in the musical scene)"
+
+##### PO8: "I wanted to leave because of the music"
+
+> "It is very important response to include as sensory displeasure, but doesn't give much indication of why (cognitive or physical displeasure), because the music triggered an unwanted memory, because I wasn't in the mood for new music, etc. These comments might not be an important distinction for this descriptive scheme and can be captured in others"
+
+> "I'm reading this as a negative (reverse) item. I would be cautious about including these as in my experience they can often be misinterpreted and are not really necessary. I think you could phrase this positively (i.e., "I wanted to stay because of the music") and the lowest ratings would convey the same information as you gauge here, without the confusion of negative wording from the participants perspective."
+
+> "This item is vague: "I wanted to leave" - from where and to where? I think it intend to measure a dislike for the music, if so, consider: "I wanted to leave the space I was in because I did not like the music""
+
+### *Revised items*:
+
+PO2: remove
+
+PO3: "I was pleased to listen to the novelty of the music"
+
+PO4: rewrite, "I knew I had never heard the music before"
+
+PO5: "I chose to listen to music because it resonated with my personal values"; "I chose to listen to music because it fit into what I was doing at the time"
+
+PO6: remove
+
+PO8: keep item as is for preferences, add "I wanted to leave the place where the music was playing"; "My ears began to hurt after listening for a long time" (Qualia)
+
+```{r}
+#| echo: false
+i <- 24
+```
+
+### `{r} Constructs[i]`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+library(kableExtra)
+#i <- 1
+  Items_sel <- CVI_item(DF[DF$construct==Constructs[i],2:4])
+  Items_sel$item <- items[match(Items_sel$Item,item_concept_id)]
+  
+  Items_sel2 <- Items_sel %>%
+  mutate(item = cell_spec(item, color = ifelse(CVIFit == "Appropriate", "green", ifelse(CVIFit == "Eliminated", "red", "black"))))
+  Items_sel2 <- dplyr::arrange(Items_sel2[,c(1:6,10)],desc(CVI.I.adj))
+  print(knitr::kable(Items_sel2,digits = 2))
+```
+
+### Expert quotes regarding specific items:
+
+##### FA2: "I am familiar with the musical genre"
+
+> "Also relevant to LMA"
+
+> "I'm not sure if this item is too broad? Also, to consider "... with this musical ..." instead of "the""
+
+##### FA5: "The experience had a familiar vibe because of the music"
+
+> "I like the use of the word 'vibe', but would perhaps consider using another word here as I would wonder whether all populations would follow the meaning of this words. Is it perhaps a bit too slang?"
+
+> "I think the sentence reads fine, but "vibe" might be somewhat informal, consider: "The experience felt familiar due to the music""
+
+### *Revised items*:
+
+FA2: "I am familiar with this musical genre"
+
+FA5: rewrite, "The experience felt familiar due to the music"
+
+FA10: might have a problem in application of item

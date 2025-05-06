@@ -1,3 +1,24 @@
+---
+title: "Modular Instrument for Music-related Emotional Episodes – Assessment of the content validity of the episode model"
+author:
+  - name: Connor Kirts
+    orcid: 0009-0009-7207-6884
+    email: connor.kirts@durham.ac.uk
+    affiliations:
+      - name: Durham University, UK
+  - name: Suvi Saarikallio
+    orcid: 0000-0002-4647-8048
+    email: suvi.saarikallio@jyu.fi
+    affiliations:
+      - name: University of Jyväskylä, Finland
+  - name: Tuomas Eerola
+    orcid: 0000-0002-2896-929X
+    email: tuomas.eerola@durham.ac.uk
+    affiliations:
+      - name: Durham University, UK
+date: 5-5-2025
+title-block-style: default
+---
 
 This repository offers data and analyses related to the study titled "Measuring emotional experiences of music – Assessment of the content validity of the episode model" by Kirts et al., (in preparation). The data is about an instrument to measure a recent theory concerning emotional episodes related to music ([Eerola, Kirts & Saarikallio, 2024](https://doi.org/10.1177/03057356241279763)).
 

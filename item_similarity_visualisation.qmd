@@ -1,0 +1,202 @@
+---
+title: "Item similarity visualisation"
+author: "T. Eerola"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+
+Similarities between the statements obtained from semantic (content meaning) analysis using LMM. This $495\times495$ matrix is the input to this analysis.  
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| id: setup
+library(devtools)
+#install_github("jokergoo/ComplexHeatmap")
+library(ggplot2)
+library(stringr)
+library(ComplexHeatmap)
+library(circlize)
+library(RColorBrewer)
+```
+
+## Read similarity data
+
+Distance matrix and item categories (sub-constructs).
+
+```{r}
+#| id: data
+#| message: false
+#| warning: false
+#| echo: true
+
+cm <- read.csv('data/similarity.csv',header = FALSE)
+N<-495
+cm<-cm[1:N,1:N]
+ItemLabel <- read.csv('data/item_concept_id.txt',header = TRUE)
+ItemLabel2<-NULL
+ItemLabel2$Instrument_ID<-ItemLabel$Concept_ID[1:N]
+ItemCategory<-ItemLabel2
+ItemCategory <- str_replace_all(ItemCategory$Instrument_ID,pattern = "[0-9]*","")
+ItemCategory<-factor(ItemCategory)
+ItemNro <- str_replace_all(ItemLabel2$Instrument_ID,pattern = "[A-Z]*","")
+colnames(cm)<-ItemCategory
+r_split <- ItemLabel2$Instrument_ID
+col_split <- ItemCategory
+N<-nrow(cm)
+```
+
+## Cluster and plot similarities
+
+```{r}
+#| id: plot1
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+#| fig.width: 14
+#| fig.height: 14
+
+CM <- as.matrix(cm)
+
+#### Colours
+ALC<-levels(ItemCategory)
+n <- length(ALC)
+qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
+ALC = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+ht_opt$TITLE_PADDING = unit(c(4, 4), "points")
+
+Heatmap(CM,
+        name="Similarity",
+        column_labels = gt_render(ItemLabel2$Instrument_ID),
+        column_names_gp = gpar(fontsize = 8),
+        row_labels = gt_render(ItemLabel2$Instrument_ID),
+        row_names_gp = gpar(fontsize = 8),
+        column_split = ItemCategory,
+        row_split = ItemCategory,
+        column_title_gp = gpar(fill = ALC,size=2,fontsize=8),
+        row_title_gp = gpar(fill = ALC,size=1,fontsize=8),
+        cluster_rows = TRUE, 
+        cluster_columns = TRUE, 
+        show_column_names = FALSE,
+        show_row_names = FALSE,
+        row_names_rot=0,
+        column_dend_height = unit(4, "cm"), 
+        row_dend_width = unit(4, "cm"),
+        row_names_max_width = max_text_width(rownames(cm), gp = gpar(fontsize = 5))
+)
+```
+
+## Collapse matrix into data frame and retain properties
+
+```{r}
+#| id: todataframe
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+items<-read.csv('data/items.txt',header = FALSE,sep = '\n')
+ItemLabel <- read.csv('data/item_concept_id.txt',header = TRUE)
+n <- 495*495
+ID <- as.matrix(cm)
+colnames(ID)<-ItemLabel$Concept_ID
+COL <- matrix(ItemLabel$Concept_ID,495,495)
+ROW<-t(COL)
+
+COL2 <- matrix(items$V1,495,495)
+ROW2<-t(COL2)
+diag(ID)<-1
+
+df<-NULL
+df$similarity <- NULL
+df$Column <- NULL
+df$Row <- NULL
+df$Column2 <- NULL
+df$Row2 <- NULL
+df$index <- NULL
+for (k in 1:n) {
+#  print(k)
+  df$similarity[k] <- ID[k]
+  df$Column[k] <- COL[k]  
+  df$Row[k] <- ROW[k] 
+  df$Column2[k] <- COL2[k]  
+  df$Row2[k] <- ROW2[k] 
+  df$index[k] <- k 
+}
+df<-data.frame(df)
+
+library(dplyr)
+dfs <- dplyr::arrange(df,-similarity)
+dfs <- dplyr::filter(dfs,similarity < 1)
+dfs<-dfs[seq(1,nrow(dfs),by=2),]
+dfs$rank<-1:nrow(dfs)
+knitr::kable(head(dfs))
+# create extra columns for categories
+dfs$ColumnC <- str_replace_all(dfs$Column,pattern = "[0-9]*","")
+dfs$RowC <- str_replace_all(dfs$Row,pattern = "[0-9]*","")
+dfs$ColumnRowSame<-dfs$ColumnC==dfs$RowC
+dfs$Column<-factor(dfs$Column)
+dfs$Row<-factor(dfs$Row)
+dfs$ColumnC<-factor(dfs$ColumnC)
+dfs$RowC<-factor(dfs$RowC)
+```
+
+## Plot ranked similarity values
+
+```{r}
+#| id: plot2
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+
+g2<-ggplot(dfs,aes(rank,similarity))+
+  geom_line(color='grey40')+
+  xlab('Rank of the pairs')+
+  ylab('Similarity of the pairs')+
+  geom_hline(yintercept = 0.99157,color='red',linetype='dashed')+
+  geom_hline(yintercept = 0.86,color='red',linetype='dashed')+
+  theme_bw()
+print(g2)
+
+g3<-ggplot(dfs[1:100,],aes(rank,similarity))+
+  geom_line(color='blue',show.legend = FALSE)+
+  geom_point(color='black',show.legend = FALSE)+
+  geom_text(aes(rank-5.5,similarity,label=Column,color=ColumnC),size=2,show.legend = FALSE)+
+  geom_text(aes(rank+5.5,similarity,label=Row,color=RowC),size=2,show.legend = FALSE)+
+  xlab('Rank of the pairs')+
+  ylab('Similarity of the pairs')+
+  theme_bw()
+print(g3)
+
+g4<-ggplot(dfs[1:75,],aes(rank,similarity))+
+  geom_line(color='blue',show.legend = FALSE)+
+  geom_point(color='black',show.legend = FALSE)+
+  geom_text(aes(rank+.5,similarity+0.0005,label=Column2,color=ColumnC),size=2,hjust=0,show.legend = FALSE)+
+  geom_text(aes(rank+.5,similarity,label=Row2,color=RowC),size=2,hjust=0,show.legend = FALSE)+
+  xlab('Rank of the pairs')+
+  ylab('Similarity of the pairs')+
+  scale_x_continuous(limits = c(0,90))+
+  theme_bw()
+print(g4)
+
+```
+
+It will require some manual exploring to learn whether the similarities are good and reliable proxies for what we would call overlapping items. These similarities can be used towards that end.
+
+## Explore overlapping items
+
+```{r}
+#| id: show-overlap
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+tmp<-dplyr::filter(dfs, ColumnC=='FA' & RowC=='FA') # change rows and column variables 
+knitr::kable(head(tmp, 12))
+```
+

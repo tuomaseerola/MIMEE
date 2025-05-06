@@ -1,0 +1,262 @@
+---
+title: "Expert Evaluations: Round 2 representativeness"
+author: "T. Eerola and C. Kirts"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+This analysis details the Round 2 of the expert decisions of representativeness. 
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| id: setup
+rm(list=ls())  # clear memory
+library(tidyverse) 
+library(stringr)
+library(psychometric)
+library(ggplot2)
+library(CVI)
+#packageVersion("CVI") # Should be 0.1.4.0 at least
+
+source('scr/read_episode_data_round2.R') # requires ToDo! 
+source('scr/preprocess_qualtrics_round2.R') # Not Finished, Complete
+source('scr/analyse_episode_data_round2.R') # Not tested
+source('scr/add_constructs_round2.R') #Needs work
+
+# write the data to file (as an option)
+file_write <- FALSE
+```
+
+
+```{r}
+#| echo: false
+#| id: read-data
+#| format: asis
+Item_CodeBook <- read.csv("data/Task2_Items_302.csv",header = TRUE)
+FC2  <- read_episode_data_round2("data/DEEM2ndFC_March162025.csv")
+LMA2 <- read_episode_data_round2("data/DEEM2ndLMA_March162025.csv")
+MM2 <- read_episode_data_round2("data/DEEM2ndMM_March162025.csv")
+
+# there is one ID_Code left empty, let's fix it first
+
+FC2$ID_Code.[FC2$ID_Code.==""] <- "XXX"
+LMA2$ID_Code.[LMA2$ID_Code.==""] <- c("XXX","SJYU")
+MM2$ID_Code.[MM2$ID_Code.==""] <- c("XXX","YYY")
+
+#table(FC2$ID_Code.) # One duplicate, EDU, remove the first take
+dupl_index <- which(FC2$ID_Code.=="EDU")[1]
+FC2 <- FC2[-dupl_index,] # delete the duplicated response
+
+# YYY seems to be a genuine but lone response, let's remove it for now
+dupl_index <- which(MM2$ID_Code.=="YYY")[1]
+MM2 <- MM2[-dupl_index,] # delete the duplicated response
+
+# Now we have 14 experts across all three constructs
+
+# this function does not bring the ranking data at all, let's fix it.
+FC2B <- preprocess_qualtrics_round2(FC2) # FC2<-FC2$rating not populating spreadsheet properly
+LMA2B <- preprocess_qualtrics_round2(LMA2)
+MM2B <- preprocess_qualtrics_round2(MM2)
+
+```
+
+```{r}
+#| echo: false
+#| id: define-constructs
+#| result: asis
+
+FC2_constructs <- add_constructs_round2(FC2B$rating,'FC2')
+LMA2_constructs <- add_constructs_round2(LMA2B$rating,'LMA2')
+MM2_constructs <- add_constructs_round2(MM2B$rating, 'MM2')
+
+DF <- rbind(FC2_constructs,LMA2_constructs,MM2_constructs)
+#table(DF$construct)                # just checking, all OK
+#print(knitr::kable(table(DF$construct,DF$ID_Code.)))    # just checking, all OK
+```
+
+
+```{r}
+#| format: asis
+#| echo: false
+#| id: summary
+#knitr::kable(table(DF$construct,DF$IDCode))
+#length(unique(DF$ID_Code.)) # number of experts
+
+DF$ID_Code. <- factor(DF$ID_Code.,labels = paste0('Ex',sprintf('%0.2d',1:length(unique(DF$ID_Code.)))))
+#knitr::kable(table(DF$construct,DF$ID_Code.))
+
+```
+
+
+```{r}
+#| id: Item-Codebook
+#| eval: false
+#### CHECK in progress
+U_codebook <- unique(Item_CodeBook$Rele_ID)
+U_data <- unique(FC2B$rating$name)
+U_data2 <- unique(MM2B$rating$name)
+U_data3 <- unique(LMA2B$rating$name)
+U_comb <- unique(c(U_data,U_data2,U_data3))
+length(U_comb) # 302
+
+m <- U_codebook %in% U_comb
+sum(m) # 302, correct!
+FC2B$rating$item_text <- Item_CodeBook$Item[match(FC2B$rating$name,Item_CodeBook$Rele_ID)]
+
+```
+
+## Analysis of rankings
+
+```{r}
+#| id: rankings-prep
+#| echo: true
+
+# define new functions 
+agreement <- function(data){
+  U <- unique(data[!is.na(data)])
+  L <- length(data[!is.na(data)])
+  agreement <- 1 - length(U) / L
+  return <- agreement
+}
+
+mostfreq <- function(data){
+  t<-data.frame(table(data))
+  Fr<-max(t$Freq) # the most freq item
+  Id <- as.numeric(t$data[max(t$Freq)==t$Freq]) # the most frequent item count
+  return <- list(id=Id[1], freq=Fr)
+}
+
+FC2_constructs <- add_constructs_round2(FC2B$rating,'FC2')
+LMA2_constructs <- add_constructs_round2(LMA2B$rating,'LMA2')
+MM2_constructs <- add_constructs_round2(MM2B$rating, 'MM2')
+
+# grab the constructs from ratings and apply to rankings
+
+FC2B$rankings$construct<-FC2_constructs$construct
+LMA2B$rankings$construct<-LMA2_constructs$construct
+MM2B$rankings$construct<-MM2_constructs$construct
+
+DF_rank <- rbind(FC2B$rankings,LMA2B$rankings,MM2B$rankings)
+#table(DF_rank$ID,DF_rank$construct)
+```
+
+Calculate agreement and the most representative item for each construct. For **Table 3** in the manuscript.
+
+
+```{r}
+#| id: rankings-analysis
+#| output: asis
+
+CONSTRUCTS <- unique(DF_rank$construct)
+DF_rank$name_as_nro <- as.numeric(str_replace_all(DF_rank$name, '_|0|[a-zA-Z]', ''))
+
+Agreement <- NULL
+MostFreqId <- NULL
+MostFreqCo <- NULL
+
+for (i in 1:length(CONSTRUCTS)){
+  tmp<-DF_rank[DF_rank$construct==CONSTRUCTS[i],]
+  nominations <- tmp$name[!is.na(tmp$value)]
+  Agreement[i] <- agreement(nominations)
+  x <- mostfreq(nominations)
+  MostFreqId[i] <- x$id
+  MostFreqCo[i] <- x$freq
+}
+ranking_summary<-data.frame(CONSTRUCTS,Agreement,ItemID=MostFreqId,Count=MostFreqCo)
+
+print(knitr::kable(ranking_summary,digits=2))
+  
+```
+
+## Revised rankings 
+
+To report to 3 or 5 items for **Table 4** in the manuscript.
+
+
+```{r}
+#| id: rankings-analysis-revised
+#| output: asis
+
+CONSTRUCTS <- unique(DF_rank$construct)
+DF_rank$name_as_nro <- as.numeric(str_replace_all(DF_rank$name, '_|0|[a-zA-Z]', ''))
+
+Agreement <- NULL
+Agreement_top_n <- NULL
+top_n <- list()
+#MostFreqId <- NULL
+#MostFreqCo <- NULL
+
+for (i in 1:length(CONSTRUCTS)){
+  tmp<-DF_rank[DF_rank$construct==CONSTRUCTS[i],]
+  nominations <- tmp$name[!is.na(tmp$value)]
+  Agreement[i] <- agreement(nominations)
+  x <- mostfreq(nominations) # this needs to contain top 5
+  ranked <- dplyr::arrange(data.frame(table(nominations)),desc(Freq))
+  # top 3 items, and agreement recalculated for those
+  top_n[[i]] <- ranked[1:5,]
+  top_n_nominations <- nominations[nominations %in% top_n[[i]]$nominations]
+  Agreement_top_n[i] <- agreement(top_n_nominations)
+  
+#  MostFreqId[i] <- x$id
+#  MostFreqCo[i] <- x$freq
+}
+ranking_summary<-data.frame(CONSTRUCTS,Agreement_top_n)
+#print(knitr::kable(ranking_summary,digits=2))
+
+tab<-NULL
+for (k in 1:length(top_n)) {
+  tab$Construct[k] <- CONSTRUCTS[k]
+  tmp<-stringr::str_replace_all(paste0(as.character(top_n[[k]]$nominations),collapse = ","),'[A-Za-z]|_0_|_| ','')
+#  tmp<-paste0(as.character(top3[[k]]$nominations),collapse = ",")
+  tab$Items[k] <- tmp  
+}
+tab<-data.frame(tab,Agreement=ranking_summary$Agreement_top_n)
+knitr::kable(tab,digits=2)  
+```
+
+
+### CVI across MAIN constructs
+
+For **Table 3** in the manuscript.
+
+```{r}
+#| output: asis
+#| id: cvi-main
+# Calculate CVI for each construct 
+Constructs <- unique(DF$construct)
+
+DF$mainconstructs <- factor(DF$construct,levels = Constructs,
+                            labels=c("FM","FM","CB","CB","EDR","EDR","EDR","PEP","PEP",
+                                     "AIA","AIA","AIA","LMA","LMA","LMA","LMA","LMA","LMA",
+                                     "MM","MM","MM","ERQ","ERQ"))
+
+#table(DF$construct,DF$mainconstructs)
+
+MainConstructs <- unique(DF$mainconstructs)
+
+Items<-list()
+Items_trimmed <- list()
+Scales_full <- list()
+Scales_trimmed <- list()
+Item_N <- NULL
+Item_N_trimmed <- NULL
+for (i in 1:length(MainConstructs)){
+  Items[[i]] <- CVI_item(DF[DF$mainconstructs==MainConstructs[i],2:4])
+  Item_N[i] <- nrow(Items[[i]])
+  Items_trimmed[[i]] <- Items[[i]][Items[[i]]$CVIFit=='Appropriate',]
+  Item_N_trimmed[i] <- nrow(Items_trimmed[[i]])
+  Scales_full[[i]] <- CVI_scale(Items[[i]])  
+  Scales_trimmed[[i]] <- CVI_scale(Items_trimmed[[i]])  
+}
+MainConstruct_table <- data.frame(MainConstructs = MainConstructs, 
+                             Item_n = Item_N,
+                             SCVI_Ave = unlist(Scales_full),
+                             Item_n_T = Item_N_trimmed,
+                             SCVI_AveT = unlist(Scales_trimmed)
+)
+knitr::kable(MainConstruct_table,digits=2)
+```
