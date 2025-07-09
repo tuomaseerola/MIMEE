@@ -261,12 +261,13 @@ knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$AIA[3])
 #| fig.height: 18 
 #| id: LMA
 index <- Constructs %in% Categories$LMA
-cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],fig[[which(index)[4]]],fig[[which(index)[5]]],ncol=1,nrow=5)
+cowplot::plot_grid(fig[[which(index)[1]]],fig[[which(index)[2]]],fig[[which(index)[3]]],fig[[which(index)[4]]],fig[[which(index)[5]]],fig[[which(index)[6]]],ncol=1,nrow=6)
 knitr::kable(Items[[which(index)[1]]],digits=2,caption = Categories$LMA[1])
 knitr::kable(Items[[which(index)[2]]],digits=2,caption = Categories$LMA[2])
 knitr::kable(Items[[which(index)[3]]],digits=2,caption = Categories$LMA[3])
 knitr::kable(Items[[which(index)[4]]],digits=2,caption = Categories$LMA[4])
 knitr::kable(Items[[which(index)[5]]],digits=2,caption = Categories$LMA[5])
+knitr::kable(Items[[which(index)[6]]],digits=2,caption = Categories$LMA[6])
 ```
 
 ### Musical Meanings
