@@ -53,7 +53,7 @@
     "href": "index.html",
     "title": "Modular Instrument for Music-related Emotional Episodes – Assessment of the content validity of the episode model",
     "section": "",
-    "text": "This repository offers data and analyses related to the study titled “Measuring emotional experiences of music – Assessment of the content validity of the episode model” by Kirts et al., (in preparation). The data is about an instrument to measure a recent theory concerning emotional episodes related to music (Eerola, Kirts & Saarikallio, 2024).\nThe public-facing version of the repository is available at https://tuomaseerola.github.io/MIMEE/. At the moment we call the instrument Modular Instrument for Music-related Emotional Episodes (MIMEE).\nThree main analytical operations are documented here."
+    "text": "This repository offers data and analyses related to the study titled “Measuring Emotional Experiences to Music – Content Validity Assessment for Episode Model Constructs” by Kirts et al., (in preparation). The data is about an instrument to measure a recent theory concerning emotional episodes related to music (Eerola, Kirts & Saarikallio, 2024).\nThe public-facing version of the repository is available at https://tuomaseerola.github.io/MIMEE/. At the moment we call the instrument Modular Instrument for Music-related Emotional Episodes (MIMEE).\nThree main analytical operations are documented here."
   },
   {
     "objectID": "index.html#semantic-similarity-analysis",
@@ -81,7 +81,7 @@
     "href": "index.html#references",
     "title": "Modular Instrument for Music-related Emotional Episodes – Assessment of the content validity of the episode model",
     "section": "References",
-    "text": "References\n\nEerola, T., Kirts, C., & Saarikallio, S. (2024). Episode model: The functional approach to emotional experiences of music. Psychology of Music, 0(0). https://doi.org/10.1177/03057356241279763"
+    "text": "References\n\nEerola, T., Kirts, C., & Saarikallio, S. (2024). Episode model: The functional approach to emotional experiences of music. _Psychology of Music, 53(3), 590-615. https://doi.org/10.1177/03057356241279763"
   },
   {
     "objectID": "expert_eval_round2.html",
